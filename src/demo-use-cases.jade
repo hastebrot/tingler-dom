@@ -1,0 +1,56 @@
+html
+  head
+    meta(charset="utf-8")
+    title tingler-dom
+
+    script(src="../bower_components/jquery/dist/jquery.min.js")
+    link(rel="stylesheet", href="../bower_components/roboto-fontface/roboto-fontface.css")
+
+    link(rel="stylesheet", href="tingler.css")
+    script(src="tingler.js")
+
+    link(rel="stylesheet", href="../bower_components/katex/katex.min.css")
+    script(src="../bower_components/katex/katex.min.js")
+
+    script(src="../bower_components/d3/d3.min.js")
+    script(src="../bower_components/dagre-d3/js/dagre-d3.min.js")
+
+    link(rel="stylesheet", href="../bower_components/highlightjs/styles/default.css")
+    script(src="../bower_components/highlightjs/highlight.pack.js")
+
+    link(rel="stylesheet", href="../bower_components/leaflet/dist/leaflet.css")
+    script(src="../bower_components/leaflet/dist/leaflet.js")
+
+  body
+    div.container
+
+      h2 tingler-dom
+
+      section.example#text-comments.shadow-z1.top
+        div.text
+          p.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          p.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.
+
+      section.example#math-formula.shadow-z1.top
+        div.formula.
+          f(x) = ax + b
+
+      section.example#graph-network.shadow-z1.top
+        svg.graph
+          g(transform="translate(10,10)")
+
+      section.example#source-code.shadow-z1.top
+        pre
+          code.code.language-python.
+            def add(a, b):
+                return a + b
+
+            if __name__ == "__main__":
+                print(add(2, 3))
+
+      section.example#world-map.shadow-z1.top
+        div.map
