@@ -1,0 +1,14 @@
+{
+  "name": "katex.tar",
+  "_cacheHeaders": {
+    "ETag": "\"30e5d2daad17f49b13579c84c1552907\"",
+    "Last-Modified": "Mon, 15 Sep 2014 10:14:59 GMT",
+    "Content-Length": "540349",
+    "Content-Type": "application/octet-stream",
+    "Content-Disposition": "attachment; filename=katex.tar.gz"
+  },
+  "_release": "e-tag:30e5d2daa",
+  "_source": "https://github.com/Khan/KaTeX/releases/download/v0.1.0/katex.tar.gz",
+  "_target": "*",
+  "_originalSource": "https://github.com/Khan/KaTeX/releases/download/v0.1.0/katex.tar.gz"
+}
