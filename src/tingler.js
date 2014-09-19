@@ -56,7 +56,6 @@ var updateTinglerPath = function($target, $tinglerPath) {
   $tinglerPath.css("left", position.left).css("top", position.top);
 };
 
-
 var initSections = function() {
   // math formula.
   var $mathFormula = $("#math-formula .formula");
@@ -102,41 +101,56 @@ var initSections = function() {
   });
 };
 
+// only visible elements
+// only top elements
+// issues with <a> in map (zero dimensions)
+// issues with "a" in formula (includes margins)
+// isuues with wrapped <u> in text (different to firefox inspector)
+// paths in map are difficult to pick
+// issues with <tspan> in formula when zoomed (wrong dimensions)
+
+var activateTingler = function($targetParent) {
+  var $tinglerHighlight = $("<div>").addClass("tingler").addClass("highlight");
+  var $tinglerPath = $("<div>").addClass("tingler").addClass("path");
+
+  $previousTarget = null;
+  $targetParent.on("mousemove", function(event) {
+    var $target = $(event.target);
+    if ($previousTarget === null || $target[0] !== $previousTarget[0]) {
+      updateTinglerHighlight($target, $tinglerHighlight);
+      updateTinglerPath($target, $tinglerPath);
+    }
+    if ($previousTarget === null) {
+      $targetParent.append($tinglerHighlight);
+      $targetParent.append($tinglerPath);
+    }
+    $previousTarget = $target;
+    //event.stopPropagation();
+  });
+};
+
+var deactivateTingler = function($targetParent) {
+  var $tinglerHighlight = $targetParent.find(".tingler.highlight");
+  var $tinglerPath = $targetParent.find(".tingler.path");
+  $tinglerHighlight.remove();
+  $tinglerPath.remove();
+};
+
 var initTingler = function() {
   var $tingleButtons = $(".annotate.button");
   $tingleButtons.on("click", function() {
     var $tingleButton = $(this);
     var isActive = $tingleButton.hasClass("active");
+    var $targetParent = $tingleButton.closest(".tingler.controls").siblings(".tingler.target");
 
-    $tingleButtons.removeClass("active");
+    $tingleButton.removeClass("active");
     if (!isActive) {
       $tingleButton.addClass("active");
+      activateTingler($targetParent);
     }
-  });
-
-  // only visible elements
-  // only top elements
-  // issues with <a> in map (zero dimensions)
-  // issues with "a" in formula (includes margins)
-  // isuues with wrapped <u> in text (different to firefox inspector)
-  // paths in map are difficult to pick
-  // issues with <tspan> in formula when zoomed (wrong dimensions)
-
-  var currentTarget = $("section");
-
-  var tinglerHighlight = $("<div>").addClass("tingler").addClass("highlight");
-  var tinglerPath = $("<div>").addClass("tingler").addClass("path");
-  $("body").append(tinglerHighlight);
-  $("body").append(tinglerPath);
-
-  // TODO: track previous $target to prevent repainting no-changes.
-
-  currentTarget.on("mousemove", function(event) {
-    var $target = $(event.target);
-
-    updateTinglerHighlight($target, tinglerHighlight);
-    updateTinglerPath($target, tinglerPath);
-    //event.stopPropagation();
+    else {
+      deactivateTingler($targetParent);
+    }
   });
 };
 
