@@ -19,6 +19,7 @@
     "leaflet": "~0.7.3",
     "lodash": "~2.4.1",
     "tether": "~0.6.5",
-    "roboto-fontface": "~0.2.0"
+    "roboto-fontface": "~0.2.0",
+    "marked": "~0.3.2"
   }
 }

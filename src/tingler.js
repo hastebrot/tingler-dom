@@ -1,4 +1,9 @@
 var initSections = function() {
+  // markdown text.
+  var $markdownText = $("#text-comments .markdown");
+  var markdownText = stripIndent($markdownText.html()).trim();
+  $markdownText.html(marked(markdownText, {sanitize: false}));
+
   // math formula.
   var $mathFormula = $("#math-formula .formula");
   katex.render($mathFormula.text(), $mathFormula[0]);
@@ -154,7 +159,7 @@ var updateTinglerPath = function($target, $tinglerPath) {
   var bounds = calculateTingleBounds($target);
   var position = {
     left: (bounds.left + (bounds.width / 2)) - ($tinglerPath.outerWidth() / 2),
-    top: bounds.top - $tinglerPath.outerHeight() - 5
+    top: bounds.top - $tinglerPath.outerHeight() - 8
   };
   $tinglerPath.css("left", position.left).css("top", position.top);
 };

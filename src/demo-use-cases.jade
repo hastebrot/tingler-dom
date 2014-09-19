@@ -1,7 +1,7 @@
 html
   head
     meta(charset="utf-8")
-    title tingler-dom
+    title tingler : dom-annotations
 
     script(src="../bower_components/jquery/dist/jquery.min.js")
     script(src="../bower_components/lodash/dist/lodash.min.js")
@@ -9,6 +9,8 @@ html
 
     link(rel="stylesheet", href="tingler.css")
     script(src="tingler.js")
+
+    script(src="../bower_components/marked/lib/marked.js")
 
     link(rel="stylesheet", href="../bower_components/katex/katex.min.css")
     script(src="../bower_components/katex/katex.min.js")
@@ -27,24 +29,27 @@ html
       style.
         h2 small { font-weight: 300; }
 
-      h2 tingler-dom-annotations <small>(todo: add dynamic image, add pdf document)</small>
+      h2 tingler <small>(dom-annotations)</small>
 
-      section.example#text-comments
+      section.example#text-comments(style="position: relative")
+        div.tingler.resizable(style="z-index: 99")
         div.tingler.controls.shadow-z1.top
+          div.title markdown
           a.edit.button edit
           a.annotate.button annotate
           div.annotations
         div.tingler.target.shadow-z1.top
-          div.text
-            p.
-              Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore</u> et dolore magna aliqua.
-            p.
-              Ut enim ad minim veniam, quis nostrud <strong>exercitation</strong> ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+          div.markdown.
+            Lorem ipsum dolor sit amet, **consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore** et dolore magna aliqua.
 
-      section.example#math-formula
+            Ut enim ad minim veniam, quis nostrud <u>exercitation</u> ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+
+      section.example#math-formula(style="position: relative")
+        div.tingler.resizable(style="z-index: 99")
         div.tingler.controls.shadow-z1.top
+          div.title latex
           a.edit.button edit
           a.annotate.button annotate
           div.annotations
@@ -52,17 +57,10 @@ html
           div.formula.
             f(x) = ax + b
 
-      section.example#graph-network
+      section.example#source-code(style="position: relative")
+        div.tingler.resizable(style="z-index: 99")
         div.tingler.controls.shadow-z1.top
-          a.edit.button edit
-          a.annotate.button annotate
-          div.annotations
-        div.tingler.target.shadow-z1.top
-          svg.graph
-            g(transform="translate(10,10)")
-
-      section.example#source-code
-        div.tingler.controls.shadow-z1.top
+          div.title python
           a.edit.button edit
           a.annotate.button annotate
           div.annotations
@@ -74,10 +72,31 @@ html
             if __name__ == "__main__":
                 print(add(2, 3))
 
-      section.example#world-map
+      section.example#graph-network(style="position: relative")
+        div.tingler.resizable(style="z-index: 99")
         div.tingler.controls.shadow-z1.top
+          div.title graphviz
+          a.edit.button edit
+          a.annotate.button annotate
+          div.annotations
+        div.tingler.target.shadow-z1.top
+          svg.graph
+            g(transform="translate(10,10)")
+
+      section.example#world-map(style="position: relative")
+        div.tingler.resizable(style="z-index: 99")
+        div.tingler.controls.shadow-z1.top
+          div.title geojson
           a.edit.button edit
           a.annotate.button annotate
           div.annotations
         div.tingler.target.shadow-z1.top
           div.map
+
+      section.example
+        div.tingler.controls.shadow-z1.top
+          div.title image (responsive)
+
+      section.example
+        div.tingler.controls.shadow-z1.top
+          div.title pdf (document)
