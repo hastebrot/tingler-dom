@@ -1,61 +1,3 @@
-
-// https://github.com/sindresorhus/strip-indent
-var stripIndent = function(str) {
-  var match = str.match(/^[ \t]*(?=\S)/gm);
-  if (!match) {
-    return str;
-  }
-  var indent = Math.min.apply(Math, match.map(function (el) {
-    return el.length;
-  }));
-  var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
-  return indent > 0 ? str.replace(re, "") : str;
-};
-
-var calculateTingleBounds = function($target) {
-  var position = $target.position();
-
-  var bounds = {
-    left: position.left,
-    top: position.top,
-    width: $target.outerWidth(),
-    height: $target.outerHeight()
-  };
-
-  if ($target[0].getBBox) {
-    var bbox = $target[0].getBoundingClientRect();
-    //var bbox = $target[0].getBBox();
-    bounds.width = bbox.width;
-    bounds.height = bbox.height;
-  }
-
-  return bounds;
-}
-
-var updateTinglerHighlight = function($target, $tinglerHighlight) {
-  var bounds = calculateTingleBounds($target);
-
-  $tinglerHighlight.css("left", bounds.left);
-  $tinglerHighlight.css("top", bounds.top);
-  $tinglerHighlight.css("width", bounds.width);
-  $tinglerHighlight.css("height", bounds.height);
-}
-
-var updateTinglerPath = function($target, $tinglerPath) {
-  var tagName = $target.prop("tagName").toLowerCase();
-  var parentTagNames = _($target.parents()).map(function(parent) {
-    return parent.tagName.toLowerCase()
-  });
-  $tinglerPath.text(tagName + " < " + parentTagNames);
-
-  var bounds = calculateTingleBounds($target);
-  var position = {
-    left: (bounds.left + (bounds.width / 2)) - ($tinglerPath.outerWidth() / 2),
-    top: bounds.top - $tinglerPath.outerHeight() - 5
-  };
-  $tinglerPath.css("left", position.left).css("top", position.top);
-};
-
 var initSections = function() {
   // math formula.
   var $mathFormula = $("#math-formula .formula");
@@ -101,6 +43,19 @@ var initSections = function() {
   });
 };
 
+// https://github.com/sindresorhus/strip-indent
+var stripIndent = function(str) {
+  var match = str.match(/^[ \t]*(?=\S)/gm);
+  if (!match) {
+    return str;
+  }
+  var indent = Math.min.apply(Math, match.map(function (el) {
+    return el.length;
+  }));
+  var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
+  return indent > 0 ? str.replace(re, "") : str;
+};
+
 // only visible elements
 // only top elements
 // issues with <a> in map (zero dimensions)
@@ -109,24 +64,49 @@ var initSections = function() {
 // paths in map are difficult to pick
 // issues with <tspan> in formula when zoomed (wrong dimensions)
 
-var activateTingler = function($targetParent) {
+var initTingler = function() {
+  var $tingleButtons = $(".annotate.button");
+  $tingleButtons.on("click", function() {
+    var $tingleButton = $(this);
+    var isActive = $tingleButton.hasClass("active");
+    var $targetParent = $tingleButton.closest(".tingler.controls").siblings(".tingler.target");
+    var $annotations = $tingleButton.siblings(".annotations");
+
+    $tingleButton.removeClass("active");
+    if (!isActive) {
+      $tingleButton.addClass("active");
+      activateTingler($targetParent, $annotations);
+    }
+    else {
+      deactivateTingler($targetParent);
+    }
+  });
+};
+
+var activateTingler = function($targetParent, $annotations) {
   var $tinglerHighlight = $("<div>").addClass("tingler").addClass("highlight");
   var $tinglerPath = $("<div>").addClass("tingler").addClass("path");
 
-  $previousTarget = null;
+  $currentTarget = null;
   $targetParent.on("mousemove", function(event) {
     var $target = $(event.target);
-    if ($previousTarget === null || $target[0] !== $previousTarget[0]) {
+    if ($currentTarget === null || $target[0] !== $currentTarget[0]) {
       updateTinglerHighlight($target, $tinglerHighlight);
       updateTinglerPath($target, $tinglerPath);
     }
-    if ($previousTarget === null) {
+    if ($currentTarget === null) {
       $targetParent.append($tinglerHighlight);
       $targetParent.append($tinglerPath);
     }
-    $previousTarget = $target;
+    $currentTarget = $target;
     //event.stopPropagation();
   });
+
+  $targetParent.on("click", function(event) {
+    var tagName = "<" + $currentTarget.prop("tagName").toLowerCase() + ">";
+    var $annotation = $("<div>").addClass("annotation").text(tagName);
+    $annotations.append($annotation);
+  })
 };
 
 var deactivateTingler = function($targetParent) {
@@ -136,22 +116,54 @@ var deactivateTingler = function($targetParent) {
   $tinglerPath.remove();
 };
 
-var initTingler = function() {
-  var $tingleButtons = $(".annotate.button");
-  $tingleButtons.on("click", function() {
-    var $tingleButton = $(this);
-    var isActive = $tingleButton.hasClass("active");
-    var $targetParent = $tingleButton.closest(".tingler.controls").siblings(".tingler.target");
+var calculateTingleBounds = function($target) {
+  var position = $target.position();
 
-    $tingleButton.removeClass("active");
-    if (!isActive) {
-      $tingleButton.addClass("active");
-      activateTingler($targetParent);
-    }
-    else {
-      deactivateTingler($targetParent);
-    }
+  var bounds = {
+    left: position.left,
+    top: position.top,
+    width: $target.outerWidth(),
+    height: $target.outerHeight()
+  };
+
+  if ($target[0].getBBox) {
+    var bbox = $target[0].getBoundingClientRect();
+    //var bbox = $target[0].getBBox();
+    bounds.width = bbox.width;
+    bounds.height = bbox.height;
+  }
+
+  return bounds;
+}
+
+var updateTinglerHighlight = function($target, $tinglerHighlight) {
+  var bounds = calculateTingleBounds($target);
+
+  $tinglerHighlight.css("left", bounds.left);
+  $tinglerHighlight.css("top", bounds.top);
+  $tinglerHighlight.css("width", bounds.width);
+  $tinglerHighlight.css("height", bounds.height);
+}
+
+var updateTinglerPath = function($target, $tinglerPath) {
+  var pathString = buildTinglerPathString($target);
+  $tinglerPath.text(pathString);
+
+  var bounds = calculateTingleBounds($target);
+  var position = {
+    left: (bounds.left + (bounds.width / 2)) - ($tinglerPath.outerWidth() / 2),
+    top: bounds.top - $tinglerPath.outerHeight() - 5
+  };
+  $tinglerPath.css("left", position.left).css("top", position.top);
+};
+
+var buildTinglerPathString = function($target) {
+  var tagName = "<" + $target.prop("tagName").toLowerCase() + ">";
+  var parentTagNames = _($target.parents()).map(function(parent) {
+    return parent.tagName.toLowerCase()
   });
+  var pathString = tagName + " < " + parentTagNames;
+  return pathString;
 };
 
 $(function() {

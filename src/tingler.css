@@ -26,7 +26,14 @@
 .tingler.controls .button {
     padding: 2px;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 8px;
+    display: inline-block;
+}
+.tingler.controls .annotations  {
+    display: inline-block;
+}
+.tingler.controls .annotations .annotation {
+    margin-right: 8px;
     display: inline-block;
 }
 .annotate.button.active {
