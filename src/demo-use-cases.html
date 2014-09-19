@@ -24,41 +24,66 @@
         
       </style>
       <h2>tingler-dom-annotations <small>(todo: add dynamic image, add pdf document)</small></h2>
-      <section id="text-comments" class="example shadow-z1 top">
-        <div class="text">
-          <p>
-            Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore</u> et dolore magna aliqua.
-          </p>
-          <p>
-            Ut enim ad minim veniam, quis nostrud <strong>exercitation</strong> ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+      <section id="text-comments" class="example">
+        <div class="tingler controls"><a class="edit button">edit</a><a class="annotate button">annotate</a>
+          <div class="annotations"></div>
+        </div>
+        <div class="tingler target shadow-z1 top">
+          <div class="text">
+            <p>
+              Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore</u> et dolore magna aliqua.
+            </p>
+            <p>
+              Ut enim ad minim veniam, quis nostrud <strong>exercitation</strong> ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+              
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="math-formula" class="example">
+        <div class="tingler controls"><a class="edit button">edit</a><a class="annotate button">annotate</a>
+          <div class="annotations"></div>
+        </div>
+        <div class="tingler target shadow-z1 top">
+          <div class="formula">
+            f(x) = ax + b
             
-          </p>
+          </div>
         </div>
       </section>
-      <section id="math-formula" class="example shadow-z1 top">
-        <div class="formula">
-          f(x) = ax + b
-          
+      <section id="graph-network" class="example">
+        <div class="tingler controls"><a class="edit button">edit</a><a class="annotate button">annotate</a>
+          <div class="annotations"></div>
+        </div>
+        <div class="tingler target shadow-z1 top">
+          <svg class="graph">
+            <g transform="translate(15,15)"></g>
+          </svg>
         </div>
       </section>
-      <section id="graph-network" class="example shadow-z1 top">
-        <svg class="graph">
-          <g transform="translate(10,10)"></g>
-        </svg>
+      <section id="source-code" class="example">
+        <div class="tingler controls"><a class="edit button">edit</a><a class="annotate button">annotate</a>
+          <div class="annotations"></div>
+        </div>
+        <div class="tingler target shadow-z1 top">
+          <pre><code class="code language-python">
+              def add(a, b):
+                  return a + b
+                  
+              if __name__ == "__main__":
+                  print(add(2, 3))
+                  </code></pre>
+        </div>
       </section>
-      <section id="source-code" class="example shadow-z1 top">
-        <pre><code class="code language-python">
-            def add(a, b):
-                return a + b
-                
-            if __name__ == "__main__":
-                print(add(2, 3))
-                </code></pre>
-      </section>
-      <section id="world-map" class="example shadow-z1 top">
-        <div class="map"></div>
+      <section id="world-map" class="example">
+        <div class="tingler controls"><a class="edit button">edit</a><a class="annotate button">annotate</a>
+          <div class="annotations"></div>
+        </div>
+        <div class="tingler target shadow-z1 top">
+          <div class="map"></div>
+        </div>
       </section>
     </div>
   </body>

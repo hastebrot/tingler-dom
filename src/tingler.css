@@ -17,10 +17,27 @@
     pointer-events: none;
 }
 
+.tingler.controls {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+    padding: 5px 10px;
+    background: #ddd;
+}
+
+.tingler.controls .button {
+    padding: 2px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: inline-block;
+}
+.annotate.button.active {
+    color: rgba(0, 0, 255, 0.9);
+    font-weight: 700;
+}
+
 html, body {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    background: #F7F7F7;
+    background: #f7f7f7;
 }
 
 .container {
