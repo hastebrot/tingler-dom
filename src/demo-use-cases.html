@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title>tingler-dom</title>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.min.js"></script>
     <link rel="stylesheet" href="../bower_components/roboto-fontface/roboto-fontface.css"/>
     <link rel="stylesheet" href="tingler.css"/>
     <script src="tingler.js"></script>
@@ -18,16 +19,20 @@
   </head>
   <body>
     <div class="container">
-      <h2>tingler-dom</h2>
+      <style>
+        h2 small { font-weight: 300; }
+        
+      </style>
+      <h2>tingler-dom-annotations <small>(todo: add dynamic image, add pdf document)</small></h2>
       <section id="text-comments" class="example shadow-z1 top">
         <div class="text">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore</u> et dolore magna aliqua.
           </p>
           <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.
+            Ut enim ad minim veniam, quis nostrud <strong>exercitation</strong> ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
             
           </p>
         </div>

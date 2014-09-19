@@ -4,6 +4,7 @@ html
     title tingler-dom
 
     script(src="../bower_components/jquery/dist/jquery.min.js")
+    script(src="../bower_components/lodash/dist/lodash.min.js")
     link(rel="stylesheet", href="../bower_components/roboto-fontface/roboto-fontface.css")
 
     link(rel="stylesheet", href="tingler.css")
@@ -23,17 +24,19 @@ html
 
   body
     div.container
+      style.
+        h2 small { font-weight: 300; }
 
-      h2 tingler-dom
+      h2 tingler-dom-annotations <small>(todo: add dynamic image, add pdf document)</small>
 
       section.example#text-comments.shadow-z1.top
         div.text
           p.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore</u> et dolore magna aliqua.
           p.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.
+            Ut enim ad minim veniam, quis nostrud <strong>exercitation</strong> ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
 
       section.example#math-formula.shadow-z1.top
         div.formula.

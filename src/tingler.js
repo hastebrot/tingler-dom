@@ -14,6 +14,65 @@ var stripIndent = function(str) {
 
 $(function() {
 
+  var currentTarget = $("section");
+
+  var tinglerHighlight = $("<div>").addClass("tingler").addClass("highlight");
+  var tinglerPath = $("<div>").addClass("tingler").addClass("path");
+  $("body").append(tinglerHighlight);
+  $("body").append(tinglerPath);
+
+  // TODO: track previous $target to prevent repainting no-changes.
+
+  currentTarget.on("mousemove", function(event) {
+    // only visible elements
+    // only top elements
+    // issues with <a> in map (zero dimensions)
+    // issues with "a" in formula (includes margins)
+    // isuues with wrapped <u> in text (different to firefox inspector)
+    // paths in map are difficult to pick
+    // issues with <tspan> in formula when zoomed (wrong dimensions)
+
+    var $target = $(event.target);
+
+    var tagName = $target.prop("tagName").toLowerCase();
+    var parentTagNames = _($target.parents()).map(function(parent) {
+      return parent.tagName.toLowerCase()
+    });
+    var position = $target.position();
+
+    var bbox = {
+      left: position.left,
+      top: position.top,
+      width: $target.outerWidth(),
+      height: $target.outerHeight()
+    };
+    if ($target[0].getBBox) {
+      var bounds = $target[0].getBoundingClientRect();
+      //var bounds = $target[0].getBBox();
+      bbox.width = bounds.width;
+      bbox.height = bounds.height;
+    }
+
+    tinglerHighlight.css("left", bbox.left);
+    tinglerHighlight.css("top", bbox.top);
+    tinglerHighlight.css("width", bbox.width);
+    tinglerHighlight.css("height", bbox.height);
+
+
+    tinglerPath.text(tagName + " < " + parentTagNames);
+    var position = {
+      left: event.pageX - (tinglerPath.outerWidth() / 2),
+      top: event.pageY - (tinglerPath.outerHeight() + 5)
+    };
+    var position = {
+      left: (bbox.left + (bbox.width / 2)) - (tinglerPath.outerWidth() / 2),
+      top: bbox.top - tinglerPath.outerHeight() - 5
+    };
+    tinglerPath.css("left", position.left).css("top", position.top);
+
+    //event.stopPropagation();
+  });
+
   // math formula.
   var $mathFormula = $("#math-formula .formula");
   katex.render($mathFormula.text(), $mathFormula[0]);
