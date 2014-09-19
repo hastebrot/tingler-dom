@@ -114,6 +114,8 @@ var deactivateTingler = function($targetParent) {
   var $tinglerPath = $targetParent.find(".tingler.path");
   $tinglerHighlight.remove();
   $tinglerPath.remove();
+  $targetParent.off("mousemove");
+  $targetParent.off();
 };
 
 var calculateTingleBounds = function($target) {
@@ -162,7 +164,7 @@ var buildTinglerPathString = function($target) {
   var parentTagNames = _($target.parents()).map(function(parent) {
     return parent.tagName.toLowerCase()
   });
-  var pathString = tagName + " < " + parentTagNames;
+  var pathString = tagName + " (" + parentTagNames + ")";
   return pathString;
 };
 
