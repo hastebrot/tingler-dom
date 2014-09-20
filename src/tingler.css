@@ -1,3 +1,7 @@
+.element .tag { color: magenta; }
+.element .id { color: lime; }
+.element .classes { color: cyan; }
+
 .tingler.highlight {
     position: fixed;
     border: 1px solid rgba(0, 0, 255, 0.3);

@@ -37,7 +37,14 @@ var initSections = function() {
   // source code.
   $sourceCode = $("#source-code pre code");
   $sourceCode.text(stripIndent($sourceCode.text()).trim());
-  hljs.initHighlightingOnLoad();
+  hljs.highlightBlock($sourceCode.get(0));
+  var sourceCodeLines = $sourceCode.html().split(/\n/);
+  $sourceCode.empty();
+  _(sourceCodeLines).each(function(sourceCodeLine, index) {
+    var lineNumber = index + 1;
+    $line = $("<div>").attr("id", "line-" + lineNumber).html(sourceCodeLine);
+    $sourceCode.append($line);
+  });
 
   // geo map.
   var $map = $("#world-map .map");
@@ -52,7 +59,8 @@ var initSections = function() {
         stroke: true,
         color: "red",
         weight: 2
-      }
+      },
+      onEachFeature: function(feature, layer) {}
     }).addTo(map);
   });
 };
@@ -160,11 +168,25 @@ var updateTinglerHighlight = function($target, $tinglerHighlight) {
   $tinglerHighlight.css("top", bounds.top);
   $tinglerHighlight.css("width", bounds.width);
   $tinglerHighlight.css("height", bounds.height);
-}
+};
 
 var updateTinglerPath = function($target, $tinglerPath) {
-  var pathString = buildTinglerPathString($target);
-  $tinglerPath.text(pathString);
+  var identifier = fetchElementIdentifier($target);
+
+  var tagString = identifier.tag;
+  var idString = identifier.id === "" ? "" :
+    "#" + identifier.id;
+  var classesString = identifier.classes == "" ? "" :
+    "." + identifier.classes.split(/\s+/).join(".");
+
+  var tag = $("<span>").addClass("tag").text(tagString);
+  var id = $("<span>").addClass("id").text(idString);
+  var classes = $("<span>").addClass("classes").text(classesString);
+  var element = $("<div>").addClass("element").append(tag).append(id).append(classes);
+  $tinglerPath.html(element);
+
+  //var reversedPath = fetchReversedPath($target);
+  //$tinglerPath.text(reversedPath.toString());
 
   var bounds = calculateTingleBounds($target);
   var position = {
@@ -174,14 +196,22 @@ var updateTinglerPath = function($target, $tinglerPath) {
   $tinglerPath.css("left", position.left).css("top", position.top);
 };
 
-var buildTinglerPathString = function($target) {
-  var tagName = "<" + $target.prop("tagName").toLowerCase() + ">";
-  var parentTagNames = _($target.parents()).map(function(parent) {
-    return parent.tagName.toLowerCase()
-  });
-  var pathString = tagName + " (" + parentTagNames + ")";
-  return pathString;
+var fetchElementIdentifier = function($element) {
+  var identifier = {
+    "tag": $element.prop("tagName").toLowerCase(),
+    "id": $element.attr("id") || "",
+    "classes": $element.attr("class") || ""
+  }
+  return identifier;
 };
+
+var fetchReversedPath = function($element) {
+  var reversedElements = $.merge([$element.get(0)], $element.parents());
+  var reversedPath = _(reversedElements).map(function(element) {
+    return $(element).prop("tagName").toLowerCase();
+  });
+  return reversedPath;
+}
 
 $(function() {
   initSections();
