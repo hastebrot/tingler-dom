@@ -1,3 +1,12 @@
+// TODO: write technical document.
+// TODO: browserify components
+// TODO: implement complete path algorithm.
+// TODO: fix position: relative bug and margin-left for highlight.
+// TODO: implement <pre> + \n to lines with <div id="line-1" class="inline">...</div>
+// TODO: implement path info string: tag (magenta) #id (green) .class (blue).
+// TODO: implement absolute path to element with :nth().
+// TODO: implement <span> insertion algorithm that detects overlapping tags.
+
 var initSections = function() {
   // markdown text.
   var $markdownText = $("#text-comments .markdown");
@@ -129,8 +138,8 @@ var calculateTingleBounds = function($target) {
   var bounds = {
     left: position.left,
     top: position.top,
-    width: $target.outerWidth(),
-    height: $target.outerHeight()
+    width: $target.outerWidth(true),
+    height: $target.outerHeight(true)
   };
 
   if ($target[0].getBBox) {

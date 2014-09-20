@@ -29,14 +29,15 @@ html
       style.
         h2 small { font-weight: 300; }
 
-      h2 tingler <small>(dom-annotations)</small>
+      h2 tingler <small>(dom-refs)</small>
 
       section.example#text-comments(style="position: relative")
         div.tingler.resizable(style="z-index: 99")
         div.tingler.controls.shadow-z1.top
           div.title markdown
           a.edit.button edit
-          a.annotate.button annotate
+          a.refs.button refs (0)
+          a.annotate.button <#>
           div.annotations
         div.tingler.target.shadow-z1.top
           div.markdown.
@@ -51,7 +52,8 @@ html
         div.tingler.controls.shadow-z1.top
           div.title latex
           a.edit.button edit
-          a.annotate.button annotate
+          a.refs.button refs (0)
+          a.annotate.button <#>
           div.annotations
         div.tingler.target.shadow-z1.top
           div.formula.
@@ -62,7 +64,8 @@ html
         div.tingler.controls.shadow-z1.top
           div.title python
           a.edit.button edit
-          a.annotate.button annotate
+          a.refs.button refs (0)
+          a.annotate.button <#>
           div.annotations
         div.tingler.target.shadow-z1.top
           pre: code.code.language-python.
@@ -77,7 +80,8 @@ html
         div.tingler.controls.shadow-z1.top
           div.title graphviz
           a.edit.button edit
-          a.annotate.button annotate
+          a.refs.button refs (0)
+          a.annotate.button <#>
           div.annotations
         div.tingler.target.shadow-z1.top
           svg.graph
@@ -88,7 +92,8 @@ html
         div.tingler.controls.shadow-z1.top
           div.title geojson
           a.edit.button edit
-          a.annotate.button annotate
+          a.refs.button refs (0)
+          a.annotate.button <#>
           div.annotations
         div.tingler.target.shadow-z1.top
           div.map

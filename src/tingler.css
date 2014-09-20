@@ -46,7 +46,7 @@
 }
 .tingler.controls .button.active {
     position: relative;
-    color: #ddd;
+    color: #ddd !important;
     background: #555;
 }
 .tingler.controls .button.active:after {
@@ -77,6 +77,10 @@
 
 .tingler.target {
     padding: 10px;
+}
+
+.tingler.controls .annotate.button {
+    color: rgba(0, 0, 255, 0.9);
 }
 
 .tingler.controls .annotations  {
