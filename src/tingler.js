@@ -133,21 +133,22 @@ var deactivateTingler = function($targetParent) {
 };
 
 var calculateTingleBounds = function($target) {
-  var position = $target.position();
+  var position = $target.offset();
+  var marginOffsets = BoxModelUtils.marginOffsets($target);
+  var borderOffsets = BoxModelUtils.borderOffsets($target);
+  var paddingOffsets = BoxModelUtils.paddingOffsets($target);
+  var elementBox = BoxModelUtils.elementBox($target);
 
-  var bounds = {
-    left: position.left,
-    top: position.top,
-    width: $target.outerWidth(true),
-    height: $target.outerHeight(true)
-  };
-
-  if ($target[0].getBBox) {
-    var bbox = $target[0].getBoundingClientRect();
-    //var bbox = $target[0].getBBox();
-    bounds.width = bbox.width;
-    bounds.height = bbox.height;
+  var offsets = {
+    left: marginOffsets.left + borderOffsets.left + paddingOffsets.left,
+    top: marginOffsets.top + borderOffsets.top + paddingOffsets.top
   }
+  var bounds = {
+    left: -window.scrollX + position.left /*+ offsets.left*/,
+    top: -window.scrollY + position.top /*+ offsets.top*/,
+    width: elementBox.width,
+    height: elementBox.height
+  };
 
   return bounds;
 }

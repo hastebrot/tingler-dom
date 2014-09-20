@@ -1,13 +1,14 @@
 .tingler.highlight {
-    position: absolute;
-    border: 1px dashed blue;
+    position: fixed;
+    border: 1px solid rgba(0, 0, 255, 0.3);
+    margin: -1px;
     background: rgba(0, 0, 255, 0.1);
     z-index: 999;
     pointer-events: none;
 }
 
 .tingler.path {
-    position: absolute;
+    position: fixed;
     color: #ddd;
     background: #555;
     /*border: 1px solid #333;*/
