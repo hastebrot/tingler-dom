@@ -8,17 +8,49 @@
 // issues with <tspan> in formula when zoomed (wrong dimensions)
 
 var initTingler = function() {
-  var $tingleButtons = $(".ref.button");
-  $tingleButtons.on("click", function() {
-    var $tingleButton = $(this);
-    var isActive = $tingleButton.hasClass("active");
-    var $targetParent = $tingleButton.closest(".tingler").find(".tingler-target");
-    var $annotations = $tingleButton.closest(".tingler").find(".tingler-refs .refs");
+  var $tingleEditButton = $(".edit.button");
+  $tingleEditButton.on("click", function() {
+    var $button = $(this);
+    var isActive = $button.hasClass("active");
+    var $editorElement = $button.closest(".tingler").find(".tingler-editor");
 
-    $tingleButton.removeClass("active");
+    $button.removeClass("active");
     if (!isActive) {
-      $tingleButton.addClass("active");
-      activateTingler($targetParent, $annotations);
+      $button.addClass("active");
+      $editorElement.removeClass("hidden");
+    }
+    else {
+      $editorElement.addClass("hidden");
+    }
+  });
+
+  var $tingleRefsButton = $(".refs.button");
+  $tingleRefsButton.on("click", function() {
+    var $button = $(this);
+    var isActive = $button.hasClass("active");
+    var $refsElement = $button.closest(".tingler").find(".tingler-refs");
+
+    $button.removeClass("active");
+    if (!isActive) {
+      $button.addClass("active");
+      $refsElement.removeClass("hidden");
+    }
+    else {
+      $refsElement.addClass("hidden");
+    }
+  });
+
+  var $tingleAddRefButton = $(".ref.button");
+  $tingleAddRefButton.on("click", function() {
+    var $button = $(this);
+    var isActive = $button.hasClass("active");
+    var $targetParent = $button.closest(".tingler").find(".tingler-target");
+    var $refsElement = $button.closest(".tingler").find(".tingler-refs .refs");
+
+    $button.removeClass("active");
+    if (!isActive) {
+      $button.addClass("active");
+      activateTingler($targetParent, $refsElement);
     }
     else {
       deactivateTingler($targetParent);
@@ -26,7 +58,7 @@ var initTingler = function() {
   });
 };
 
-var activateTingler = function($targetParent, $annotations) {
+var activateTingler = function($targetParent, $refsElement) {
   var $tinglerOverlay = $("<div>").addClass("tingler-overlay");
   $targetParent.append($tinglerOverlay);
 
@@ -50,8 +82,8 @@ var activateTingler = function($targetParent, $annotations) {
 
   $targetParent.on("click", function(event) {
     var tagName = "<" + $currentTarget.prop("tagName").toLowerCase() + ">";
-    var $annotation = $("<div>").addClass("ref").text(tagName);
-    $annotations.append($annotation);
+    var $refElement = $("<div>").addClass("ref").text(tagName);
+    $refsElement.append($refElement);
   })
 };
 

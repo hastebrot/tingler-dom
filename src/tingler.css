@@ -19,9 +19,6 @@
   padding: 0 10px;
   background: #ddd;
 }
-.tingler .tingler-controls small {
-  color: rgba(0, 0, 255, 0.9);
-}
 .tingler .tingler-controls .title {
   font-weight: 700;
   padding: 6px 9px;
@@ -98,6 +95,7 @@
   display: inline-block;
 }
 .tingler .tingler-target {
+  background: white;
   padding: 10px;
 }
 .tingler .tingler-overlay .highlight {

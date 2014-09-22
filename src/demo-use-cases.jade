@@ -45,7 +45,7 @@ html
           a.edit.button src <small>(1)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-editor(style="position: relative")
+        div.tingler-editor.hidden(style="position: relative").shadow-z1.top
           div.resizable
           pre: code.
             ## First Section
@@ -61,12 +61,12 @@ html
             Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
 
-        div.tingler-refs
+        div.tingler-refs.hidden.shadow-z1.top
           div.title refs:
           a.ref.button <...>
           div.refs
 
-        div.tingler-target
+        div.tingler-target.shadow-z1.top
           div.markdown
 
       //-------------------------------------------------------------------------------------------
@@ -81,12 +81,12 @@ html
           a.edit.button src <small>(1)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs
+        div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
 
-        div.tingler-target
+        div.tingler-target.shadow-z1.top
           div.formula.
             f(x) = ax + b
 
@@ -102,12 +102,12 @@ html
           a.edit.button src <small>(0)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs
+        div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
 
-        div.tingler-target
+        div.tingler-target.shadow-z1.top
           pre: code.code.language-python.
             def add(a, b):
                 return a + b
@@ -127,13 +127,13 @@ html
           a.edit.button src <small>(0)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs
+        div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
 
-        div.tingler-target
-          pre.model(style="display: none").
+        div.tingler-target.shadow-z1.top
+          pre.model.hidden.
             digraph {
               kspacey   [label="Kevin Spacey"];
               swilliams [label="Saul Williams"];
@@ -163,13 +163,13 @@ html
           a.edit.button src <small>(0)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs
+        div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
 
-        div.tingler-target
-          pre.model(style="display: none").
+        div.tingler-target.shadow-z1.top
+          pre.model.hidden.
             data/ne_110m_admin_0_countries.geo.json
           div.map
 
@@ -185,12 +185,12 @@ html
       //     a.edit.button src <small>(0)</small>
       //     a.refs.button refs <small>(0)</small>
 
-      //   div.tingler-refs
+      //   div.tingler-refs.hidden
       //     div.title refs:
       //     a.ref.button <...>
       //     div.refs
 
-      //   div.tingler-target
+      //   div.tingler-target.shadow-z1.top
       //     div.pdfPage(style="overflow-y: auto; height: 333px;")
       //       canvas.view(style="width: 100%")
       //       div.textLayer

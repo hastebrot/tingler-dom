@@ -32,7 +32,7 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">markdown</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div style="position: relative" class="tingler-editor">
+        <div style="position: relative" class="tingler-editor hidden shadow-z1 top">
           <div class="resizable"></div>
           <pre><code>
               ## First Section
@@ -49,11 +49,11 @@
               laboris nisi ut aliquip ex ea commodo consequat.
               </code></pre>
         </div>
-        <div class="tingler-refs">
+        <div class="tingler-refs hidden shadow-z1 top">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target">
+        <div class="tingler-target shadow-z1 top">
           <div class="markdown"></div>
         </div>
       </section>
@@ -63,11 +63,11 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">latex</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler-refs">
+        <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target">
+        <div class="tingler-target shadow-z1 top">
           <div class="formula">
             f(x) = ax + b
             
@@ -80,11 +80,11 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">python</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler-refs">
+        <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target">
+        <div class="tingler-target shadow-z1 top">
           <pre><code class="code language-python">
               def add(a, b):
                   return a + b
@@ -100,12 +100,12 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">graphviz</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler-refs">
+        <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target">
-          <pre style="display: none" class="model">digraph {
+        <div class="tingler-target shadow-z1 top">
+          <pre class="model hidden">digraph {
   kspacey   [label="Kevin Spacey"];
   swilliams [label="Saul Williams"];
   bpitt     [label="Brad Pitt"];
@@ -130,12 +130,12 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">geojson</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler-refs">
+        <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target">
-          <pre style="display: none" class="model">data/ne_110m_admin_0_countries.geo.json</pre>
+        <div class="tingler-target shadow-z1 top">
+          <pre class="model hidden">data/ne_110m_admin_0_countries.geo.json</pre>
           <div class="map"></div>
         </div>
       </section>
@@ -146,11 +146,11 @@
       <!--     div.title pdf-->
       <!--     a.edit.button src <small>(0)</small>-->
       <!--     a.refs.button refs <small>(0)</small>-->
-      <!--   div.tingler-refs-->
+      <!--   div.tingler-refs.hidden-->
       <!--     div.title refs:-->
       <!--     a.ref.button <...>-->
       <!--     div.refs-->
-      <!--   div.tingler-target-->
+      <!--   div.tingler-target.shadow-z1.top-->
       <!--     div.pdfPage(style="overflow-y: auto; height: 333px;")-->
       <!--       canvas.view(style="width: 100%")-->
       <!--       div.textLayer-->

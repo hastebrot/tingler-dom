@@ -103,6 +103,9 @@ svg.graph .edgePath {
 .shadow-z1.bottom {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+.hidden {
+  display: none;
+}
 /* https://github.com/mozilla/pdf.js/wiki/Minimal-example-that-showcases-PDF-rendering-with-text-selection-enabled */
 /*
 .pdfPage {
