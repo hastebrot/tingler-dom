@@ -7,6 +7,7 @@ html
     script(src="../bower_components/lodash/dist/lodash.min.js")
     link(rel="stylesheet", href="../bower_components/roboto-fontface/roboto-fontface.css")
 
+    link(rel="stylesheet", href="demo.css")
     link(rel="stylesheet", href="tingler.css")
     script(src="tingler.js")
     script(src="tingler/boxModelUtils.js")
@@ -18,6 +19,8 @@ html
 
     script(src="../bower_components/d3/d3.min.js")
     script(src="../bower_components/dagre-d3/js/dagre-d3.min.js")
+    script(src="../bower_components/graphlib/graphlib.min.js")
+    script(src="../bower_components/graphlib/graphlib-dot.min.js")
 
     link(rel="stylesheet", href="../bower_components/highlightjs/styles/default.css")
     script(src="../bower_components/highlightjs/highlight.pack.js")
@@ -27,48 +30,83 @@ html
 
   body
     div.container
-      style.
-        h2 small { font-weight: 300; }
-
       h2 tingler <small>(dom-refs)</small>
 
-      section.example#text-comments(style="position: relative")
-        div.tingler.resizable(style="z-index: 99")
-        div.tingler.controls.shadow-z1.top
+      //-------------------------------------------------------------------------------------------
+      // MARKDOWN TEXT.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler#text-comments.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
           div.title markdown
-          a.edit.button edit
-          a.refs.button refs (0)
-          a.annotate.button <...>
-          div.annotations
-        div.tingler.target.shadow-z1.top
-          div.markdown.
-            Lorem ipsum dolor sit amet, **consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore** et dolore magna aliqua.
+          a.edit.button src <small>(1)</small>
+          a.refs.button refs <small>(0)</small>
 
-            Ut enim ad minim veniam, quis nostrud <u>exercitation</u> ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+        div.tingler-editor(style="position: relative")
+          div.resizable
+          pre: code.
+            ## First Section
 
-      section.example#math-formula(style="position: relative")
-        div.tingler.resizable(style="z-index: 99")
-        div.tingler.controls.shadow-z1.top
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+
+            Ut enim ad minim veniam, quis nostrud <u>exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo</u> consequat.
+
+            ## Second Section
+
+            Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+
+        div.tingler-refs
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target
+          div.markdown
+
+      //-------------------------------------------------------------------------------------------
+      // LATEX FORMULA.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler.example#math-formula.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
           div.title latex
-          a.edit.button edit
-          a.refs.button refs (0)
-          a.annotate.button <...>
-          div.annotations
-        div.tingler.target.shadow-z1.top
+          a.edit.button src <small>(1)</small>
+          a.refs.button refs <small>(0)</small>
+
+        div.tingler-refs
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target
           div.formula.
             f(x) = ax + b
 
-      section.example#source-code(style="position: relative")
-        div.tingler.resizable(style="z-index: 99")
-        div.tingler.controls.shadow-z1.top
+      //-------------------------------------------------------------------------------------------
+      // SOURCE CODE.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler.example#source-code.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
           div.title python
-          a.edit.button edit
-          a.refs.button refs (0)
-          a.annotate.button <...>
-          div.annotations
-        div.tingler.target.shadow-z1.top
+          a.edit.button src <small>(0)</small>
+          a.refs.button refs <small>(0)</small>
+
+        div.tingler-refs
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target
           pre: code.code.language-python.
             def add(a, b):
                 return a + b
@@ -76,33 +114,90 @@ html
             if __name__ == "__main__":
                 print(add(2, 3))
 
-      section.example#graph-network(style="position: relative")
-        div.tingler.resizable(style="z-index: 99")
-        div.tingler.controls.shadow-z1.top
+      //-------------------------------------------------------------------------------------------
+      // GRAPHVIZ GRAPH.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler.example#graph-network.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
           div.title graphviz
-          a.edit.button edit
-          a.refs.button refs (0)
-          a.annotate.button <...>
-          div.annotations
-        div.tingler.target.shadow-z1.top
+          a.edit.button src <small>(0)</small>
+          a.refs.button refs <small>(0)</small>
+
+        div.tingler-refs
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target
+          pre.model(style="display: none").
+            digraph {
+              kspacey   [label="Kevin Spacey"];
+              swilliams [label="Saul Williams"];
+              bpitt     [label="Brad Pitt"];
+              hford     [label="Harrison Ford"];
+              lwilson   [label="Luke Wilson"];
+              kbacon    [label="Kevin Bacon"];
+
+              kspacey   -> swilliams [label="K-PAX"];
+              swilliams -> kbacon    [label="These Vagabond Shoes"];
+              bpitt     -> kbacon    [label="Sleepers"];
+              hford     -> lwilson   [label="Anchorman 2"];
+              lwilson   -> kbacon    [label="Telling Lies in America"];
+            }
           svg.graph
             g(transform="translate(10,10)")
 
-      section.example#world-map(style="position: relative")
-        div.tingler.resizable(style="z-index: 99")
-        div.tingler.controls.shadow-z1.top
+      //-------------------------------------------------------------------------------------------
+      // GEOJSON MAP.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler.example#world-map.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
           div.title geojson
-          a.edit.button edit
-          a.refs.button refs (0)
-          a.annotate.button <...>
-          div.annotations
-        div.tingler.target.shadow-z1.top
+          a.edit.button src <small>(0)</small>
+          a.refs.button refs <small>(0)</small>
+
+        div.tingler-refs
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target
+          pre.model(style="display: none").
+            data/ne_110m_admin_0_countries.geo.json
           div.map
 
-      section.example
-        div.tingler.controls.shadow-z1.top
-          div.title image (responsive)
+      //-------------------------------------------------------------------------------------------
+      // PDF DOCUMENT.
+      //-------------------------------------------------------------------------------------------
 
-      section.example
-        div.tingler.controls.shadow-z1.top
-          div.title pdf (document)
+      // section.tingler.example#pdf-document.shadow-z1.top
+      //   div.resizable
+
+      //   div.tingler-controls.shadow-z1.top
+      //     div.title pdf
+      //     a.edit.button src <small>(0)</small>
+      //     a.refs.button refs <small>(0)</small>
+
+      //   div.tingler-refs
+      //     div.title refs:
+      //     a.ref.button <...>
+      //     div.refs
+
+      //   div.tingler-target
+      //     div.pdfPage(style="overflow-y: auto; height: 333px;")
+      //       canvas.view(style="width: 100%")
+      //       div.textLayer
+
+      //-------------------------------------------------------------------------------------------
+      // RESPONSIVE IMAGE.
+      //-------------------------------------------------------------------------------------------
+
+      //section.tingler.example#responsive-image.shadow-z1.top
+      //  div.tingler-controls.shadow-z1.top
+      //    div.title image

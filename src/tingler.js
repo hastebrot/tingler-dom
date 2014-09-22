@@ -1,38 +1,22 @@
-// TODO: write technical document.
-// TODO: browserify components
-// TODO: implement complete path algorithm.
-// TODO: fix position: relative bug and margin-left for highlight.
-// TODO: implement <pre> + \n to lines with <div id="line-1" class="inline">...</div>
-// TODO: implement path info string: tag (magenta) #id (green) .class (blue).
-// TODO: implement absolute path to element with :nth().
-// TODO: implement <span> insertion algorithm that detects overlapping tags.
 
 var initSections = function() {
   // markdown text.
-  var $markdownText = $("#text-comments .markdown");
-  var markdownText = stripIndent($markdownText.html()).trim();
-  $markdownText.html(marked(markdownText, {sanitize: false}));
+  $markdownText = $("#text-comments pre code");
+  $markdownText.text(stripIndent($markdownText.html()).trim());
+  var $markdownHtml = $("#text-comments .markdown");
+  $markdownHtml.html(marked($markdownText.text(), {sanitize: false}));
 
   // math formula.
   var $mathFormula = $("#math-formula .formula");
   katex.render($mathFormula.text(), $mathFormula[0]);
 
   // graph network.
-  var graph = new dagreD3.Digraph();
-  graph.addNode("kspacey",    { label: "Kevin Spacey" });
-  graph.addNode("swilliams",  { label: "Saul Williams" });
-  graph.addNode("bpitt",      { label: "Brad Pitt" });
-  graph.addNode("hford",      { label: "Harrison Ford" });
-  graph.addNode("lwilson",    { label: "Luke Wilson" });
-  graph.addNode("kbacon",     { label: "Kevin Bacon" });
-  graph.addEdge(null, "kspacey",   "swilliams", { label: "K-PAX" });
-  graph.addEdge(null, "swilliams", "kbacon",    { label: "These Vagabond Shoes" });
-  graph.addEdge(null, "bpitt",     "kbacon",    { label: "Sleepers" });
-  graph.addEdge(null, "hford",     "lwilson",   { label: "Anchorman 2" });
-  graph.addEdge(null, "lwilson",   "kbacon",    { label: "Telling Lies in America" });
+  $graphModel = $("#graph-network .model");
+  $graphView = $("#graph-network svg g");
+  var model = graphlibDot.parse($graphModel.text());
   var renderer = new dagreD3.Renderer();
   var layout = dagreD3.layout().nodeSep(20).rankDir("LR");
-  renderer.layout(layout).run(graph, d3.select("svg g"));
+  renderer.layout(layout).run(model, d3.select($graphView.get(0)));
 
   // source code.
   $sourceCode = $("#source-code pre code");
@@ -47,22 +31,56 @@ var initSections = function() {
   });
 
   // geo map.
-  var $map = $("#world-map .map");
-  var map = L.map($map[0], {attributionControl: false});
+  var $mapModel = $("#world-map .model");
+  var $mapView = $("#world-map .map");
+  var map = L.map($mapView.get(0), {attributionControl: false});
   map.setView([49, 12], 4);
-  $.getJSON("data/ne_110m_admin_0_countries.geo.json", function(data) {
+  var defaultStyle = {
+    fillColor: "#fff",
+    fillOpacity: 1,
+    fill: true,
+    stroke: true,
+    color: "red",
+    weight: 2
+  };
+  $.getJSON($mapModel.text().trim(), function(data) {
     L.geoJson(data, {
-      style: {
-        fillColor: "#fff",
-        fillOpacity: 1,
-        fill: true,
-        stroke: true,
-        color: "red",
-        weight: 2
-      },
+      style: defaultStyle,
       onEachFeature: function(feature, layer) {}
     }).addTo(map);
   });
+
+  // pdf document.
+  // var $pdfView = $("#pdf-document .view");
+  // var $textLayer = $("#pdf-document .textLayer");
+  // var url = "data/TestDocument.pdf";
+  // PDFJS.getDocument(url).then(function(pdf) {
+  //   pdf.getPage(1).then(function(page) {
+  //     var scale = 1.5;
+  //     var viewport = page.getViewport(scale);
+
+  //     var canvas = $pdfView.get(0);
+  //     var context = canvas.getContext("2d");
+  //     canvas.height = viewport.height;
+  //     canvas.width = viewport.width;
+
+  //     var renderContext = {
+  //       canvasContext: context,
+  //       viewport: viewport
+  //     };
+  //     page.render(renderContext);
+
+  //     page.getTextContent().then(function (textContent) {
+  //       var textLayerBuilder = new TextLayerBuilder({
+  //         textLayerDiv: $textLayer.get(0),
+  //         viewport: viewport,
+  //         pageIndex: 0
+  //       });
+  //       textLayerBuilder.setTextContent(textContent);
+  //     });
+  //   });
+  // });
+
 };
 
 // https://github.com/sindresorhus/strip-indent
@@ -87,12 +105,12 @@ var stripIndent = function(str) {
 // issues with <tspan> in formula when zoomed (wrong dimensions)
 
 var initTingler = function() {
-  var $tingleButtons = $(".annotate.button");
+  var $tingleButtons = $(".ref.button");
   $tingleButtons.on("click", function() {
     var $tingleButton = $(this);
     var isActive = $tingleButton.hasClass("active");
-    var $targetParent = $tingleButton.closest(".tingler.controls").siblings(".tingler.target");
-    var $annotations = $tingleButton.siblings(".annotations");
+    var $targetParent = $tingleButton.closest(".tingler").find(".tingler-target");
+    var $annotations = $tingleButton.closest(".tingler").find(".tingler-refs .refs");
 
     $tingleButton.removeClass("active");
     if (!isActive) {
@@ -106,8 +124,11 @@ var initTingler = function() {
 };
 
 var activateTingler = function($targetParent, $annotations) {
-  var $tinglerHighlight = $("<div>").addClass("tingler").addClass("highlight");
-  var $tinglerPath = $("<div>").addClass("tingler").addClass("path");
+  var $tinglerOverlay = $("<div>").addClass("tingler-overlay");
+  $targetParent.append($tinglerOverlay);
+
+  var $tinglerHighlight = $("<div>").addClass("highlight");
+  var $tinglerPath = $("<div>").addClass("path");
 
   $currentTarget = null;
   $targetParent.on("mousemove", function(event) {
@@ -117,8 +138,8 @@ var activateTingler = function($targetParent, $annotations) {
       updateTinglerPath($target, $tinglerPath);
     }
     if ($currentTarget === null) {
-      $targetParent.append($tinglerHighlight);
-      $targetParent.append($tinglerPath);
+      $tinglerOverlay.append($tinglerHighlight);
+      $tinglerOverlay.append($tinglerPath);
     }
     $currentTarget = $target;
     //event.stopPropagation();
@@ -126,16 +147,14 @@ var activateTingler = function($targetParent, $annotations) {
 
   $targetParent.on("click", function(event) {
     var tagName = "<" + $currentTarget.prop("tagName").toLowerCase() + ">";
-    var $annotation = $("<div>").addClass("annotation").text(tagName);
+    var $annotation = $("<div>").addClass("ref").text(tagName);
     $annotations.append($annotation);
   })
 };
 
 var deactivateTingler = function($targetParent) {
-  var $tinglerHighlight = $targetParent.find(".tingler.highlight");
-  var $tinglerPath = $targetParent.find(".tingler.path");
-  $tinglerHighlight.remove();
-  $tinglerPath.remove();
+  var $tinglerOverlay = $targetParent.find(".tingler-overlay");
+  $tinglerOverlay.remove();
   $targetParent.off("mousemove");
   $targetParent.off();
 };

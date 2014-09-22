@@ -1,192 +1,140 @@
-.element .tag { color: magenta; }
-.element .id { color: lime; }
-.element .classes { color: cyan; }
-
-.tingler.highlight {
-    position: fixed;
-    border: 1px solid rgba(0, 0, 255, 0.3);
-    margin: -1px;
-    background: rgba(0, 0, 255, 0.1);
-    z-index: 999;
-    pointer-events: none;
+.tingler {
+  position: relative;
 }
-
-.tingler.path {
-    position: fixed;
-    color: #ddd;
-    background: #555;
-    /*border: 1px solid #333;*/
-    border-radius: 5px;
-    padding: 4px 8px;
-    z-index: 999;
-    pointer-events: none;
+.tingler .resizable {
+  z-index: 99;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0;
+  width: 0;
+  cursor: nwse-resize !important;
+  border-right: 10px solid #ccc;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #ccc #ccc transparent;
+  /*box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);*/
 }
-.tingler.path:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    z-index: 1000;
-    border-top: 8px solid #555;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    margin-left: -8px;
+.tingler .tingler-controls {
+  padding: 0 10px;
+  background: #ddd;
 }
-
-.tingler.controls {
-    padding: 0 10px;
-    background: #ddd;
+.tingler .tingler-controls small {
+  color: rgba(0, 0, 255, 0.9);
 }
-
-.tingler.controls .title {
-    font-weight: 700;
-    padding: 6px 9px;
-    display: inline-block;
+.tingler .tingler-controls .title {
+  font-weight: 700;
+  padding: 6px 9px;
+  display: inline-block;
 }
-
-.tingler.controls .button {
-    padding: 6px 9px;
-    cursor: pointer;
-    display: inline-block;
+.tingler .tingler-controls .button {
+  padding: 6px 9px;
+  cursor: pointer;
+  display: inline-block;
 }
-.tingler.controls .button.active {
-    position: relative;
-    color: #ddd !important;
-    background: #555;
+.tingler .tingler-controls .button.active {
+  position: relative;
+  color: #ddd !important;
+  background: #555;
 }
-.tingler.controls .button.active:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    z-index: 1;
-    border-top: 8px solid #555;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    margin-left: -8px;
+.tingler .tingler-controls .button.active:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  border-top: 8px solid #555;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin-left: -8px;
 }
-
-.tingler.resizable {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 0;
-    width: 0;
-    cursor: nwse-resize !important;
-    border-right: 10px solid #ccc;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #ccc #ccc transparent;
-    /*box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);*/
+.tingler .tingler-editor {
+  background: #f8f5ec;
+  border-bottom: 1px solid #ddd;
+  height: 222px;
+  overflow: hidden;
 }
-
-.tingler.target {
-    padding: 10px;
+.tingler .tingler-refs {
+  padding: 0 10px;
+  background: #f8f5ec;
+  border-bottom: 1px solid #ddd;
 }
-
-.tingler.controls .annotate.button {
-    color: rgba(0, 0, 255, 0.9);
+.tingler .tingler-refs .title {
+  font-weight: 700;
+  padding: 6px 9px;
+  display: inline-block;
 }
-
-.tingler.controls .annotations  {
-    display: inline-block;
+.tingler .tingler-refs .button {
+  padding: 6px 9px;
+  cursor: pointer;
+  display: inline-block;
 }
-.tingler.controls .annotations .annotation {
-    color: rgba(0, 0, 255, 0.9);
-    padding: 6px 9px;
-    cursor: pointer;
-    display: inline-block;
+.tingler .tingler-refs .button.active {
+  position: relative;
+  color: #ddd !important;
+  background: #555;
 }
-
-/** {
-    padding: 0;
-    box-sizing: border-box;
-    margin: 0;
-}*/
-
-html, body {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    background: #f7f7f7;
+.tingler .tingler-refs .button.active:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  border-top: 8px solid #555;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin-left: -8px;
 }
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
+.tingler .tingler-refs .button.ref {
+  color: rgba(0, 0, 255, 0.9);
 }
-
-section.example {
-    background: white;
-    padding: 0;
-    /*border: 1px solid #ccc;*/
-    margin: 30px 0;
+.tingler .tingler-refs .refs {
+  display: inline-block;
 }
-
-pre, code {
-    padding: 0;
-    margin: 0;
+.tingler .tingler-refs .refs .ref {
+  color: rgba(0, 0, 255, 0.9);
+  padding: 6px 9px;
+  cursor: pointer;
+  display: inline-block;
 }
-
-pre code {
-    background: none !important;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-    font-size: 17px;
+.tingler .tingler-target {
+  padding: 10px;
 }
-
-.markdown {
-    padding: 10px;
+.tingler .tingler-overlay .highlight {
+  position: fixed;
+  border: 1px solid rgba(0, 0, 255, 0.3);
+  margin: -1px;
+  background: rgba(0, 0, 255, 0.1);
+  z-index: 999;
+  pointer-events: none;
 }
-
-.markdown p {
-    font-size: 20px;
-    line-height: 1.5em;
-    padding-bottom: 12px;
-    margin: 0;
+.tingler .tingler-overlay .path {
+  position: fixed;
+  color: #ddd;
+  background: #555;
+  /*border: 1px solid #333;*/
+  border-radius: 5px;
+  padding: 4px 8px;
+  z-index: 999;
+  pointer-events: none;
 }
-
-.markdown p:last-child {
-    padding-bottom: 0;
+.tingler .tingler-overlay .path:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1000;
+  border-top: 8px solid #555;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin-left: -8px;
 }
-
-.formula {
-    text-align: center;
-    font-size: 20px;
-    padding: 10px 0;
-    overflow: auto;
+.tingler .tingler-overlay .element .tag {
+  color: magenta;
 }
-
-
-svg.graph {
-    overflow: hidden;
-    width: 100%;
-    height: 222px;
+.tingler .tingler-overlay .element .id {
+  color: lime;
 }
-
-svg.graph .node rect {
-    stroke: #333;
-    stroke-width: 1.5px;
-    fill: #fff;
-}
-
-svg.graph .edgeLabel rect {
-    fill: #fff;
-}
-
-svg.graph .edgePath {
-    stroke: #333;
-    stroke-width: 1.5px;
-    fill: none;
-}
-
-#world-map .map {
-    height: 422px;
-    width: 100%;
-}
-
-.shadow-z1.top {
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
-}
-
-.shadow-z1.bottom {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+.tingler .tingler-overlay .element .classes {
+  color: cyan;
 }

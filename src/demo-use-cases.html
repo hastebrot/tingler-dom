@@ -6,6 +6,7 @@
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/lodash/dist/lodash.min.js"></script>
     <link rel="stylesheet" href="../bower_components/roboto-fontface/roboto-fontface.css"/>
+    <link rel="stylesheet" href="demo.css"/>
     <link rel="stylesheet" href="tingler.css"/>
     <script src="tingler.js"></script>
     <script src="tingler/boxModelUtils.js"></script>
@@ -14,6 +15,8 @@
     <script src="../bower_components/katex/katex.min.js"></script>
     <script src="../bower_components/d3/d3.min.js"></script>
     <script src="../bower_components/dagre-d3/js/dagre-d3.min.js"></script>
+    <script src="../bower_components/graphlib/graphlib.min.js"></script>
+    <script src="../bower_components/graphlib/graphlib-dot.min.js"></script>
     <link rel="stylesheet" href="../bower_components/highlightjs/styles/default.css"/>
     <script src="../bower_components/highlightjs/highlight.pack.js"></script>
     <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css"/>
@@ -21,48 +24,66 @@
   </head>
   <body>
     <div class="container">
-      <style>
-        h2 small { font-weight: 300; }
-        
-      </style>
       <h2>tingler <small>(dom-refs)</small></h2>
-      <section id="text-comments" style="position: relative" class="example">
-        <div style="z-index: 99" class="tingler resizable"></div>
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">markdown</div><a class="edit button">edit</a><a class="refs button">refs (0)</a><a class="annotate button"><...></a>
-          <div class="annotations"></div>
+      <!-- MARKDOWN TEXT.-->
+      <section id="text-comments" class="tingler shadow-z1 top">
+        <div class="resizable"></div>
+        <div class="tingler-controls shadow-z1 top">
+          <div class="title">markdown</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler target shadow-z1 top">
-          <div class="markdown">
-            Lorem ipsum dolor sit amet, **consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore** et dolore magna aliqua.
-            
-            Ut enim ad minim veniam, quis nostrud <u>exercitation</u> ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
-            
-          </div>
+        <div style="position: relative" class="tingler-editor">
+          <div class="resizable"></div>
+          <pre><code>
+              ## First Section
+              
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
+              
+              Ut enim ad minim veniam, quis nostrud <u>exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo</u> consequat.
+              
+              ## Second Section
+              
+              Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
+              laboris nisi ut aliquip ex ea commodo consequat.
+              </code></pre>
+        </div>
+        <div class="tingler-refs">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target">
+          <div class="markdown"></div>
         </div>
       </section>
-      <section id="math-formula" style="position: relative" class="example">
-        <div style="z-index: 99" class="tingler resizable"></div>
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">latex</div><a class="edit button">edit</a><a class="refs button">refs (0)</a><a class="annotate button"><...></a>
-          <div class="annotations"></div>
+      <!-- LATEX FORMULA.-->
+      <section id="math-formula" class="tingler example shadow-z1 top">
+        <div class="resizable"></div>
+        <div class="tingler-controls shadow-z1 top">
+          <div class="title">latex</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler target shadow-z1 top">
+        <div class="tingler-refs">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target">
           <div class="formula">
             f(x) = ax + b
             
           </div>
         </div>
       </section>
-      <section id="source-code" style="position: relative" class="example">
-        <div style="z-index: 99" class="tingler resizable"></div>
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">python</div><a class="edit button">edit</a><a class="refs button">refs (0)</a><a class="annotate button"><...></a>
-          <div class="annotations"></div>
+      <!-- SOURCE CODE.-->
+      <section id="source-code" class="tingler example shadow-z1 top">
+        <div class="resizable"></div>
+        <div class="tingler-controls shadow-z1 top">
+          <div class="title">python</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler target shadow-z1 top">
+        <div class="tingler-refs">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target">
           <pre><code class="code language-python">
               def add(a, b):
                   return a + b
@@ -72,38 +93,70 @@
                   </code></pre>
         </div>
       </section>
-      <section id="graph-network" style="position: relative" class="example">
-        <div style="z-index: 99" class="tingler resizable"></div>
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">graphviz</div><a class="edit button">edit</a><a class="refs button">refs (0)</a><a class="annotate button"><...></a>
-          <div class="annotations"></div>
+      <!-- GRAPHVIZ GRAPH.-->
+      <section id="graph-network" class="tingler example shadow-z1 top">
+        <div class="resizable"></div>
+        <div class="tingler-controls shadow-z1 top">
+          <div class="title">graphviz</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler target shadow-z1 top">
+        <div class="tingler-refs">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target">
+          <pre style="display: none" class="model">digraph {
+  kspacey   [label="Kevin Spacey"];
+  swilliams [label="Saul Williams"];
+  bpitt     [label="Brad Pitt"];
+  hford     [label="Harrison Ford"];
+  lwilson   [label="Luke Wilson"];
+  kbacon    [label="Kevin Bacon"];
+  
+  kspacey   -> swilliams [label="K-PAX"];
+  swilliams -> kbacon    [label="These Vagabond Shoes"];
+  bpitt     -> kbacon    [label="Sleepers"];
+  hford     -> lwilson   [label="Anchorman 2"];
+  lwilson   -> kbacon    [label="Telling Lies in America"];
+}</pre>
           <svg class="graph">
             <g transform="translate(10,10)"></g>
           </svg>
         </div>
       </section>
-      <section id="world-map" style="position: relative" class="example">
-        <div style="z-index: 99" class="tingler resizable"></div>
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">geojson</div><a class="edit button">edit</a><a class="refs button">refs (0)</a><a class="annotate button"><...></a>
-          <div class="annotations"></div>
+      <!-- GEOJSON MAP.-->
+      <section id="world-map" class="tingler example shadow-z1 top">
+        <div class="resizable"></div>
+        <div class="tingler-controls shadow-z1 top">
+          <div class="title">geojson</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler target shadow-z1 top">
+        <div class="tingler-refs">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target">
+          <pre style="display: none" class="model">data/ne_110m_admin_0_countries.geo.json</pre>
           <div class="map"></div>
         </div>
       </section>
-      <section class="example">
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">image (responsive)</div>
-        </div>
-      </section>
-      <section class="example">
-        <div class="tingler controls shadow-z1 top">
-          <div class="title">pdf (document)</div>
-        </div>
-      </section>
+      <!-- PDF DOCUMENT.-->
+      <!-- section.tingler.example#pdf-document.shadow-z1.top-->
+      <!--   div.resizable-->
+      <!--   div.tingler-controls.shadow-z1.top-->
+      <!--     div.title pdf-->
+      <!--     a.edit.button src <small>(0)</small>-->
+      <!--     a.refs.button refs <small>(0)</small>-->
+      <!--   div.tingler-refs-->
+      <!--     div.title refs:-->
+      <!--     a.ref.button <...>-->
+      <!--     div.refs-->
+      <!--   div.tingler-target-->
+      <!--     div.pdfPage(style="overflow-y: auto; height: 333px;")-->
+      <!--       canvas.view(style="width: 100%")-->
+      <!--       div.textLayer-->
+      <!-- RESPONSIVE IMAGE.-->
+      <!--section.tingler.example#responsive-image.shadow-z1.top-->
+      <!--  div.tingler-controls.shadow-z1.top-->
+      <!--    div.title image-->
     </div>
   </body>
 </html>
