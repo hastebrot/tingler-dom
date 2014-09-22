@@ -48,8 +48,11 @@
 .tingler .tingler-editor {
   background: #f8f5ec;
   border-bottom: 1px solid #ddd;
-  height: 222px;
+  max-height: 222px;
   overflow: hidden;
+}
+.tingler .tingler-editor pre {
+  padding: 15px 20px;
 }
 .tingler .tingler-refs {
   padding: 0 10px;
@@ -70,17 +73,6 @@
   position: relative;
   color: #ddd !important;
   background: #555;
-}
-.tingler .tingler-refs .button.active:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  z-index: 1;
-  border-top: 8px solid #555;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  margin-left: -8px;
 }
 .tingler .tingler-refs .button.ref {
   color: rgba(0, 0, 255, 0.9);

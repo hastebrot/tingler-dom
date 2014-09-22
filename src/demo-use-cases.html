@@ -27,7 +27,7 @@
     <div class="container">
       <h2>tingler <small>(dom-refs)</small></h2>
       <!-- MARKDOWN TEXT.-->
-      <section id="text-comments" class="tingler shadow-z1 top">
+      <section id="markdown-text" class="tingler shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">markdown</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
@@ -58,20 +58,22 @@
         </div>
       </section>
       <!-- LATEX FORMULA.-->
-      <section id="math-formula" class="tingler example shadow-z1 top">
+      <section id="latex-formula" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">latex</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
+        </div>
+        <div class="tingler-editor hidden shadow-z1 top">
+          <pre><code>
+              f(x) = ax + b
+              </code></pre>
         </div>
         <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
         <div class="tingler-target shadow-z1 top">
-          <div class="formula">
-            f(x) = ax + b
-            
-          </div>
+          <div class="formula"></div>
         </div>
       </section>
       <!-- SOURCE CODE.-->
@@ -80,12 +82,8 @@
         <div class="tingler-controls shadow-z1 top">
           <div class="title">python</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div class="tingler-refs hidden">
-          <div class="title">refs:</div><a class="ref button"><...></a>
-          <div class="refs"></div>
-        </div>
-        <div class="tingler-target shadow-z1 top">
-          <pre><code class="code language-python">
+        <div class="tingler-editor hidden shadow-z1 top">
+          <pre><code>
               def add(a, b):
                   return a + b
                   
@@ -93,71 +91,67 @@
                   print(add(2, 3))
                   </code></pre>
         </div>
+        <div class="tingler-refs hidden">
+          <div class="title">refs:</div><a class="ref button"><...></a>
+          <div class="refs"></div>
+        </div>
+        <div class="tingler-target shadow-z1 top">
+          <pre><code class="code language-python"></code></pre>
+        </div>
       </section>
       <!-- GRAPHVIZ GRAPH.-->
-      <section id="graph-network" class="tingler example shadow-z1 top">
+      <section id="graphviz-graph" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">graphviz</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
+        </div>
+        <div class="tingler-editor hidden shadow-z1 top">
+          <pre><code>
+              digraph {
+                kspacey   [label="Kevin Spacey"];
+                swilliams [label="Saul Williams"];
+                bpitt     [label="Brad Pitt"];
+                hford     [label="Harrison Ford"];
+                lwilson   [label="Luke Wilson"];
+                kbacon    [label="Kevin Bacon"];
+                
+                kspacey   -> swilliams [label="K-PAX"];
+                swilliams -> kbacon    [label="These Vagabond Shoes"];
+                bpitt     -> kbacon    [label="Sleepers"];
+                hford     -> lwilson   [label="Anchorman 2"];
+                lwilson   -> kbacon    [label="Telling Lies in America"];
+              }
+              </code></pre>
         </div>
         <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
         <div class="tingler-target shadow-z1 top">
-          <pre class="model hidden">digraph {
-  kspacey   [label="Kevin Spacey"];
-  swilliams [label="Saul Williams"];
-  bpitt     [label="Brad Pitt"];
-  hford     [label="Harrison Ford"];
-  lwilson   [label="Luke Wilson"];
-  kbacon    [label="Kevin Bacon"];
-  
-  kspacey   -> swilliams [label="K-PAX"];
-  swilliams -> kbacon    [label="These Vagabond Shoes"];
-  bpitt     -> kbacon    [label="Sleepers"];
-  hford     -> lwilson   [label="Anchorman 2"];
-  lwilson   -> kbacon    [label="Telling Lies in America"];
-}</pre>
           <svg class="graph">
             <g transform="translate(10,10)"></g>
           </svg>
         </div>
       </section>
       <!-- GEOJSON MAP.-->
-      <section id="world-map" class="tingler example shadow-z1 top">
+      <section id="geojson-map" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">geojson</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
+        </div>
+        <div class="tingler-editor hidden shadow-z1 top">
+          <pre><code>
+              data/ne_110m_admin_0_countries.geo.json
+              </code></pre>
         </div>
         <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
         <div class="tingler-target shadow-z1 top">
-          <pre class="model hidden">data/ne_110m_admin_0_countries.geo.json</pre>
           <div class="map"></div>
         </div>
       </section>
-      <!-- PDF DOCUMENT.-->
-      <!-- section.tingler.example#pdf-document.shadow-z1.top-->
-      <!--   div.resizable-->
-      <!--   div.tingler-controls.shadow-z1.top-->
-      <!--     div.title pdf-->
-      <!--     a.edit.button src <small>(0)</small>-->
-      <!--     a.refs.button refs <small>(0)</small>-->
-      <!--   div.tingler-refs.hidden-->
-      <!--     div.title refs:-->
-      <!--     a.ref.button <...>-->
-      <!--     div.refs-->
-      <!--   div.tingler-target.shadow-z1.top-->
-      <!--     div.pdfPage(style="overflow-y: auto; height: 333px;")-->
-      <!--       canvas.view(style="width: 100%")-->
-      <!--       div.textLayer-->
-      <!-- RESPONSIVE IMAGE.-->
-      <!--section.tingler.example#responsive-image.shadow-z1.top-->
-      <!--  div.tingler-controls.shadow-z1.top-->
-      <!--    div.title image-->
     </div>
   </body>
 </html>

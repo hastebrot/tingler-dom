@@ -30,33 +30,36 @@
       padding: 6px 9px;
       cursor: pointer;
       display: inline-block;
-    }
 
-    .button.active {
-      position: relative;
-      color: #ddd !important;
-      background: #555;
+      &.active {
+        position: relative;
+        color: #ddd !important;
+        background: #555;
 
-    }
-
-    .button.active:after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      z-index: 1;
-      border-top: 8px solid #555;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      margin-left: -8px;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          z-index: 1;
+          border-top: 8px solid #555;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          margin-left: -8px;
+        }
+      }
     }
   }
 
   .tingler-editor {
     background: #f8f5ec;
     border-bottom: 1px solid #ddd;
-    height: 222px;
+    max-height: 222px;
     overflow: hidden;
+
+    pre {
+      padding: 15px 20px;
+    }
   }
 
   .tingler-refs {
@@ -74,24 +77,12 @@
       padding: 6px 9px;
       cursor: pointer;
       display: inline-block;
-    }
 
-    .button.active {
-      position: relative;
-      color: #ddd !important;
-      background: #555;
-    }
-
-    .button.active:after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      z-index: 1;
-      border-top: 8px solid #555;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      margin-left: -8px;
+      &.active {
+        position: relative;
+        color: #ddd !important;
+        background: #555;
+      }
     }
 
     .button.ref {
@@ -100,12 +91,13 @@
 
     .refs {
       display: inline-block;
-    }
-    .refs .ref {
-      color: rgba(0, 0, 255, 0.9);
-      padding: 6px 9px;
-      cursor: pointer;
-      display: inline-block;
+
+      .ref {
+        color: rgba(0, 0, 255, 0.9);
+        padding: 6px 9px;
+        cursor: pointer;
+        display: inline-block;
+      }
     }
   }
 
@@ -133,22 +125,30 @@
       padding: 4px 8px;
       z-index: 999;
       pointer-events: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 1000;
+        border-top: 8px solid #555;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        margin-left: -8px;
+      }
     }
 
-    .path:after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      z-index: 1000;
-      border-top: 8px solid #555;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      margin-left: -8px;
+    .element {
+      .tag {
+        color: magenta;
+      }
+      .id {
+        color: lime;
+      }
+      .classes {
+        color: cyan;
+      }
     }
-
-    .element .tag { color: magenta; }
-    .element .id { color: lime; }
-    .element .classes { color: cyan; }
   }
 }

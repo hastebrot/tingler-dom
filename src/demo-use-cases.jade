@@ -37,7 +37,7 @@ html
       // MARKDOWN TEXT.
       //-------------------------------------------------------------------------------------------
 
-      section.tingler#text-comments.shadow-z1.top
+      section.tingler#markdown-text.shadow-z1.top
         div.resizable
 
         div.tingler-controls.shadow-z1.top
@@ -73,7 +73,7 @@ html
       // LATEX FORMULA.
       //-------------------------------------------------------------------------------------------
 
-      section.tingler.example#math-formula.shadow-z1.top
+      section.tingler.example#latex-formula.shadow-z1.top
         div.resizable
 
         div.tingler-controls.shadow-z1.top
@@ -81,14 +81,17 @@ html
           a.edit.button src <small>(1)</small>
           a.refs.button refs <small>(0)</small>
 
+        div.tingler-editor.hidden.shadow-z1.top
+          pre: code.
+            f(x) = ax + b
+
         div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
 
         div.tingler-target.shadow-z1.top
-          div.formula.
-            f(x) = ax + b
+          div.formula
 
       //-------------------------------------------------------------------------------------------
       // SOURCE CODE.
@@ -102,24 +105,27 @@ html
           a.edit.button src <small>(0)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs.hidden
-          div.title refs:
-          a.ref.button <...>
-          div.refs
-
-        div.tingler-target.shadow-z1.top
-          pre: code.code.language-python.
+        div.tingler-editor.hidden.shadow-z1.top
+          pre: code.
             def add(a, b):
                 return a + b
 
             if __name__ == "__main__":
                 print(add(2, 3))
 
+        div.tingler-refs.hidden
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target.shadow-z1.top
+          pre: code.code.language-python
+
       //-------------------------------------------------------------------------------------------
       // GRAPHVIZ GRAPH.
       //-------------------------------------------------------------------------------------------
 
-      section.tingler.example#graph-network.shadow-z1.top
+      section.tingler.example#graphviz-graph.shadow-z1.top
         div.resizable
 
         div.tingler-controls.shadow-z1.top
@@ -127,13 +133,8 @@ html
           a.edit.button src <small>(0)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-refs.hidden
-          div.title refs:
-          a.ref.button <...>
-          div.refs
-
-        div.tingler-target.shadow-z1.top
-          pre.model.hidden.
+        div.tingler-editor.hidden.shadow-z1.top
+          pre: code.
             digraph {
               kspacey   [label="Kevin Spacey"];
               swilliams [label="Saul Williams"];
@@ -148,20 +149,6 @@ html
               hford     -> lwilson   [label="Anchorman 2"];
               lwilson   -> kbacon    [label="Telling Lies in America"];
             }
-          svg.graph
-            g(transform="translate(10,10)")
-
-      //-------------------------------------------------------------------------------------------
-      // GEOJSON MAP.
-      //-------------------------------------------------------------------------------------------
-
-      section.tingler.example#world-map.shadow-z1.top
-        div.resizable
-
-        div.tingler-controls.shadow-z1.top
-          div.title geojson
-          a.edit.button src <small>(0)</small>
-          a.refs.button refs <small>(0)</small>
 
         div.tingler-refs.hidden
           div.title refs:
@@ -169,36 +156,29 @@ html
           div.refs
 
         div.tingler-target.shadow-z1.top
-          pre.model.hidden.
+          svg.graph
+            g(transform="translate(10,10)")
+
+      //-------------------------------------------------------------------------------------------
+      // GEOJSON MAP.
+      //-------------------------------------------------------------------------------------------
+
+      section.tingler.example#geojson-map.shadow-z1.top
+        div.resizable
+
+        div.tingler-controls.shadow-z1.top
+          div.title geojson
+          a.edit.button src <small>(0)</small>
+          a.refs.button refs <small>(0)</small>
+
+        div.tingler-editor.hidden.shadow-z1.top
+          pre: code.
             data/ne_110m_admin_0_countries.geo.json
+
+        div.tingler-refs.hidden
+          div.title refs:
+          a.ref.button <...>
+          div.refs
+
+        div.tingler-target.shadow-z1.top
           div.map
-
-      //-------------------------------------------------------------------------------------------
-      // PDF DOCUMENT.
-      //-------------------------------------------------------------------------------------------
-
-      // section.tingler.example#pdf-document.shadow-z1.top
-      //   div.resizable
-
-      //   div.tingler-controls.shadow-z1.top
-      //     div.title pdf
-      //     a.edit.button src <small>(0)</small>
-      //     a.refs.button refs <small>(0)</small>
-
-      //   div.tingler-refs.hidden
-      //     div.title refs:
-      //     a.ref.button <...>
-      //     div.refs
-
-      //   div.tingler-target.shadow-z1.top
-      //     div.pdfPage(style="overflow-y: auto; height: 333px;")
-      //       canvas.view(style="width: 100%")
-      //       div.textLayer
-
-      //-------------------------------------------------------------------------------------------
-      // RESPONSIVE IMAGE.
-      //-------------------------------------------------------------------------------------------
-
-      //section.tingler.example#responsive-image.shadow-z1.top
-      //  div.tingler-controls.shadow-z1.top
-      //    div.title image
