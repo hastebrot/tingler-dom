@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>tingler (dom-refs)</title>
+    <title>PasteBread.Referencer</title>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/lodash/dist/lodash.min.js"></script>
     <link rel="stylesheet" href="../bower_components/roboto-fontface/roboto-fontface.css"/>
@@ -25,10 +25,13 @@
   </head>
   <body>
     <div class="container">
-      <h2>tingler <small>(dom-refs)</small></h2>
+      <h2>PasteBread.Referencer <small>(demo)</small></h2>
       <!-- MARKDOWN TEXT.-->
-      <section id="markdown-text" class="tingler shadow-z1 top">
+      <section id="markdown-text" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
+        <div class="tingler-target shadow-z1 top">
+          <div class="markdown"></div>
+        </div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">markdown</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
@@ -53,13 +56,13 @@
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target shadow-z1 top">
-          <div class="markdown"></div>
-        </div>
       </section>
       <!-- LATEX FORMULA.-->
       <section id="latex-formula" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
+        <div class="tingler-target shadow-z1 top">
+          <div class="formula"></div>
+        </div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">latex</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
@@ -72,15 +75,15 @@
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target shadow-z1 top">
-          <div class="formula"></div>
-        </div>
       </section>
       <!-- SOURCE CODE.-->
       <section id="source-code" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
+        <div class="tingler-target shadow-z1 top">
+          <pre><code class="code language-python"></code></pre>
+        </div>
         <div class="tingler-controls shadow-z1 top">
-          <div class="title">python</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
+          <div class="title">python</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
         <div class="tingler-editor hidden shadow-z1 top">
           <pre><code>
@@ -95,15 +98,17 @@
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target shadow-z1 top">
-          <pre><code class="code language-python"></code></pre>
-        </div>
       </section>
       <!-- GRAPHVIZ GRAPH.-->
       <section id="graphviz-graph" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
+        <div class="tingler-target shadow-z1 top">
+          <svg class="graph">
+            <g transform="translate(10,10)"></g>
+          </svg>
+        </div>
         <div class="tingler-controls shadow-z1 top">
-          <div class="title">graphviz</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
+          <div class="title">graphviz</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
         <div class="tingler-editor hidden shadow-z1 top">
           <pre><code>
@@ -127,17 +132,15 @@
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
-        <div class="tingler-target shadow-z1 top">
-          <svg class="graph">
-            <g transform="translate(10,10)"></g>
-          </svg>
-        </div>
       </section>
       <!-- GEOJSON MAP.-->
       <section id="geojson-map" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
+        <div class="tingler-target shadow-z1 top">
+          <div class="map"></div>
+        </div>
         <div class="tingler-controls shadow-z1 top">
-          <div class="title">geojson</div><a class="edit button">src <small>(0)</small></a><a class="refs button">refs <small>(0)</small></a>
+          <div class="title">geojson</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
         <div class="tingler-editor hidden shadow-z1 top">
           <pre><code>
@@ -147,9 +150,6 @@
         <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
-        </div>
-        <div class="tingler-target shadow-z1 top">
-          <div class="map"></div>
         </div>
       </section>
     </div>

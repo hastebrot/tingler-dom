@@ -1,5 +1,5 @@
 {
-  "name": "tingler-dom",
+  "name": "PasteBread.Referencer",
   "version": "0.0.0",
   "authors": [
     "Benjamin Gudehus <hastebrot@gmail.com>"
@@ -12,12 +12,14 @@
     "bower_components"
   ],
   "dependencies": {
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
     "dagre-d3": "~0.2.9",
     "highlightjs": "~8.0.0",
-    "jquery": "~2.1.1",
     "katex": "https://github.com/Khan/KaTeX/releases/download/v0.1.0/katex.tar.gz",
     "leaflet": "~0.7.3",
-    "lodash": "~2.4.1",
     "marked": "~0.3.2",
     "tether": "~0.6.5",
     "roboto-fontface": "~0.2.0"

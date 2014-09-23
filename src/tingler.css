@@ -9,11 +9,10 @@
   height: 0;
   width: 0;
   cursor: nwse-resize !important;
-  border-right: 10px solid #ccc;
+  border-right: 10px solid #aaa;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent #ccc #ccc transparent;
-  /*box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);*/
+  border-color: transparent #aaa #aaa transparent;
 }
 .tingler .tingler-controls {
   padding: 0 10px;
@@ -48,11 +47,12 @@
 .tingler .tingler-editor {
   background: #f8f5ec;
   border-bottom: 1px solid #ddd;
-  max-height: 222px;
-  overflow: hidden;
 }
 .tingler .tingler-editor pre {
   padding: 15px 20px;
+  max-height: 222px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .tingler .tingler-refs {
   padding: 0 10px;

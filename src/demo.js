@@ -67,7 +67,7 @@ var initSections = function() {
       fillOpacity: 1,
       fill: true,
       stroke: true,
-      color: "red",
+      color: "#800",
       weight: 2
     };
     L.geoJson(data, {
