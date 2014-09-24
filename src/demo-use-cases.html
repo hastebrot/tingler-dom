@@ -28,14 +28,14 @@
       <h2>PasteBread.Referencer <small>(demo)</small></h2>
       <!-- MARKDOWN TEXT.-->
       <section id="markdown-text" class="tingler example shadow-z1 top">
-        <div class="resizable"></div>
         <div class="tingler-target shadow-z1 top">
           <div class="markdown"></div>
         </div>
-        <div class="tingler-controls shadow-z1 top">
+        <div style="position: relative" class="tingler-controls shadow-z1 top">
+          <div class="resizable"></div>
           <div class="title">markdown</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
-        <div style="position: relative" class="tingler-editor hidden shadow-z1 top">
+        <div class="tingler-editor hidden shadow-z1 top">
           <div class="resizable"></div>
           <pre><code>
               ## First Section
@@ -50,23 +50,29 @@
               
               Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
               laboris nisi ut aliquip ex ea commodo consequat.
+              
+              ---
+              
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat.
               </code></pre>
         </div>
-        <div class="tingler-refs hidden shadow-z1 top">
+        <div class="tingler-refs hidden">
           <div class="title">refs:</div><a class="ref button"><...></a>
           <div class="refs"></div>
         </div>
       </section>
       <!-- LATEX FORMULA.-->
       <section id="latex-formula" class="tingler example shadow-z1 top">
-        <div class="resizable"></div>
         <div class="tingler-target shadow-z1 top">
           <div class="formula"></div>
         </div>
         <div class="tingler-controls shadow-z1 top">
+          <div class="resizable"></div>
           <div class="title">latex</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
         </div>
         <div class="tingler-editor hidden shadow-z1 top">
+          <div class="resizable"></div>
           <pre><code>
               f(x) = ax + b
               </code></pre>
@@ -80,7 +86,7 @@
       <section id="source-code" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-target shadow-z1 top">
-          <pre><code class="code language-python"></code></pre>
+          <pre class="source"><code class="code language-python"></code></pre>
         </div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">python</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>
@@ -103,9 +109,11 @@
       <section id="graphviz-graph" class="tingler example shadow-z1 top">
         <div class="resizable"></div>
         <div class="tingler-target shadow-z1 top">
-          <svg class="graph">
-            <g transform="translate(10,10)"></g>
-          </svg>
+          <div class="inner">
+            <svg class="graph">
+              <g transform="translate(10,10)"></g>
+            </svg>
+          </div>
         </div>
         <div class="tingler-controls shadow-z1 top">
           <div class="title">graphviz</div><a class="edit button">src <small>(1)</small></a><a class="refs button">refs <small>(0)</small></a>

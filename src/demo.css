@@ -15,7 +15,7 @@ pre code {
   font-size: 17px;
 }
 .shadow-z1.top {
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 .shadow-z1.bottom {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -26,6 +26,7 @@ pre code {
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 .container h2 small {
   font-weight: 300;
@@ -37,27 +38,28 @@ section.example {
   margin: 30px 0;
 }
 #markdown-text .markdown {
-  padding: 10px;
+  padding: 10px 20px;
+}
+#markdown-text .markdown hr {
+  height: 0;
+  border-image: none;
+  box-sizing: content-box;
+  border-width: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 15px -20px;
 }
 #markdown-text .markdown a {
-  color: #000000;
-  background-color: #dbffb4;
+  color: #008cdd;
   text-decoration: none;
 }
 #markdown-text .markdown a:hover {
-  background-color: #c4e89c;
-}
-#markdown-text .markdown a.none {
-  background: none;
-}
-#markdown-text .markdown a.none:hover {
-  background-color: #FAFAFA;
+  color: black;
+  text-decoration: underline;
 }
 #markdown-text .markdown strong {
   font-weight: 700;
 }
 #markdown-text .markdown h2 {
-  color: #800;
   font-size: 20px;
   font-weight: 700;
   padding: 0;
@@ -68,8 +70,8 @@ section.example {
   padding-top: 12px;
 }
 #markdown-text .markdown p {
-  font-size: 19px;
-  line-height: 1.4em;
+  font-size: 18px;
+  line-height: 1.5em;
   padding-bottom: 12px;
   margin: 0;
 }
@@ -77,25 +79,38 @@ section.example {
   padding-bottom: 0;
 }
 #latex-formula .formula {
+  background: #f7f7f7;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   text-align: center;
   font-size: 20px;
-  padding: 10px 0;
+  padding: 10px 20px;
   overflow: auto;
 }
-#graphviz-graph svg.graph {
+#source-code pre.source {
+  padding: 0 10px;
+  background: #f7f7f7;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+#graphviz-graph .inner {
+  margin: 0 0;
+  padding: 0 10px;
+}
+#graphviz-graph .inner svg.graph {
   overflow: hidden;
   width: 100%;
   height: 222px;
 }
-#graphviz-graph svg.graph .node rect {
+#graphviz-graph .inner svg.graph .node rect {
   stroke: #333;
   stroke-width: 1.5px;
   fill: #fff;
 }
-#graphviz-graph svg.graph .edgeLabel rect {
+#graphviz-graph .inner svg.graph .edgeLabel rect {
   fill: #fff;
 }
-#graphviz-graph svg.graph .edgePath {
+#graphviz-graph .inner svg.graph .edgePath {
   stroke: #333;
   stroke-width: 1.5px;
   fill: none;
@@ -103,4 +118,7 @@ section.example {
 #geojson-map .map {
   height: 422px;
   width: 100%;
+  background: #f0f0f0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
 }

@@ -38,17 +38,16 @@ html
       //-------------------------------------------------------------------------------------------
 
       section.tingler.example#markdown-text.shadow-z1.top
-        div.resizable
-
         div.tingler-target.shadow-z1.top
           div.markdown
 
-        div.tingler-controls.shadow-z1.top
+        div.tingler-controls.shadow-z1.top(style="position: relative")
+          div.resizable
           div.title markdown
           a.edit.button src <small>(1)</small>
           a.refs.button refs <small>(0)</small>
 
-        div.tingler-editor.hidden(style="position: relative").shadow-z1.top
+        div.tingler-editor.hidden.shadow-z1.top
           div.resizable
           pre: code.
             ## First Section
@@ -64,7 +63,12 @@ html
             Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
 
-        div.tingler-refs.hidden.shadow-z1.top
+            ---
+
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+
+        div.tingler-refs.hidden
           div.title refs:
           a.ref.button <...>
           div.refs
@@ -74,17 +78,17 @@ html
       //-------------------------------------------------------------------------------------------
 
       section.tingler.example#latex-formula.shadow-z1.top
-        div.resizable
-
         div.tingler-target.shadow-z1.top
           div.formula
 
         div.tingler-controls.shadow-z1.top
+          div.resizable
           div.title latex
           a.edit.button src <small>(1)</small>
           a.refs.button refs <small>(0)</small>
 
         div.tingler-editor.hidden.shadow-z1.top
+          div.resizable
           pre: code.
             f(x) = ax + b
 
@@ -101,7 +105,7 @@ html
         div.resizable
 
         div.tingler-target.shadow-z1.top
-          pre: code.code.language-python
+          pre.source: code.code.language-python
 
         div.tingler-controls.shadow-z1.top
           div.title python
@@ -129,7 +133,7 @@ html
         div.resizable
 
         div.tingler-target.shadow-z1.top
-          svg.graph
+          div.inner: svg.graph
             g(transform="translate(10,10)")
 
         div.tingler-controls.shadow-z1.top

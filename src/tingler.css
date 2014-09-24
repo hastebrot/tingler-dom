@@ -88,7 +88,7 @@
 }
 .tingler .tingler-target {
   background: white;
-  padding: 10px;
+  padding: 10px 0;
 }
 .tingler .tingler-overlay .highlight {
   position: fixed;
