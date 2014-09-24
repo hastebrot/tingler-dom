@@ -1,0 +1,191 @@
+html
+  head
+    meta(charset="utf-8")
+    title PasteBread.Referencer
+
+    script(src="../bower_components/jquery/dist/jquery.min.js")
+    script(src="../bower_components/lodash/dist/lodash.min.js")
+    link(rel="stylesheet", href="../bower_components/roboto-fontface/roboto-fontface.css")
+    link(rel="stylesheet", href="typography.css")
+
+  body#blog
+    div#main
+
+      article
+        header
+          h1 Lorem Ipsum Dolor
+          p Sit amet, consectetur adipiscing elit
+
+      article
+        div.content
+          p.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas libero massa,
+            | volutpat eget augue eu, aliquet feugiat mi. Sed nec nisi et mauris sagittis molestie
+            | vitae vitae sem.
+
+          p Nulla in venenatis enim. Curabitur massa lectus, condimentum ut dolor et, sollicitudin
+            | scelerisque ipsum. Maecenas volutpat turpis eros, quis gravida lorem faucibus at.
+            | Integer eget aliquam lacus. Fusce at finibus sem.
+
+          h2 Morbi elementum malesuada mi
+
+          p <a href="#">Sed commodo mi ac imperdiet</a> commodo. Vestibulum semper ipsum a dui
+            | faucibus feugiat.
+            | <strong>Ut eu neque vel justo consequat pretium.</strong> Aliquam erat volutpat.
+            | Suspendisse auctor ipsum ut magna rhoncus, non accumsan magna
+            | mattis. <code>Quisque vitae pulvinar mi, et congue augue.</code> Integer eu mattis
+            | libero. Sed ultrices lorem non ipsum suscipit luctus.
+
+          h3 Donec fringilla eget magna sit amet rutrum
+
+          p Quisque quis erat eget risus vulputate accumsan id a lacus. Aliquam sed
+            | dui at neque placerat consequat at eget neque. Aenean justo tellus, scelerisque
+            | sed nibh ut, sagittis laoreet sem. Aenean nisl est, blandit a tellus non, fringilla
+            | mattis ex. Quisque euismod est non purus rhoncus aliquam. Curabitur sed auctor
+            | lectus.
+
+          //p Morbi elementum malesuada mi eget dapibus. Donec fringilla eget magna sit amet rutrum. Aliquam convallis rhoncus dolor sit amet congue. Aliquam consequat molestie magna. Nam eu mi metus. Nam id magna lobortis, bibendum sem sed, congue metus. Ut consequat eleifend diam ac vulputate. Maecenas facilisis porta magna, fringilla imperdiet massa ullamcorper nec. Suspendisse potenti. Vivamus molestie nisl ac ultricies dapibus.
+
+      article
+        div.content
+          ol
+            li Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            li Sed commodo mi ac imperdiet commodo.
+            li Morbi elementum malesuada mi eget dapibus.
+
+          hr
+
+          ul
+            li <b>Lorem ipsum dolor</b> sit amet, consectetur adipiscing elit. Maecenas libero
+              | massa, volutpat eget augue eu, aliquet feugiat mi.
+            li <b>Sed commodo</b> mi ac imperdiet commodo. Vestibulum semper ipsum a dui faucibus
+              | feugiat. Ut eu neque vel <a href="#">justo consequat pretium</a>.
+            li <b>Morbi elementum</b> malesuada mi eget dapibus.
+
+          hr
+
+          ol
+            li
+              p <b>Quisque quis erat eget risus vulputate accumsan id a lacus.</b> Aliquam sed
+                | dui at neque placerat consequat at eget neque. Aenean justo tellus, scelerisque
+                | sed nibh ut, sagittis laoreet sem.
+              p Aenean nisl est, blandit a tellus non, fringilla
+                | mattis ex. Quisque euismod est non purus rhoncus aliquam. Curabitur sed auctor
+                | lectus.
+            li
+              p <b>Maecenas libero massa, volutpat eget augue eu, aliquet feugiat mi.</b> Sed nec
+                | nisi et mauris sagittis molestie vitae vitae sem.
+              p Sed commodo mi ac imperdiet commodo. Vestibulum semper ipsum a dui faucibus
+                | feugiat. Ut eu neque vel justo consequat pretium. Aliquam erat volutpat.
+
+          hr
+
+          ul
+            li <b>Lorem ipsum dolor</b> sit amet, consectetur adipiscing elit. Maecenas libero
+              | massa, volutpat eget augue eu, aliquet feugiat mi.
+              ul
+                li <b>Sed commodo</b> mi ac imperdiet commodo. Vestibulum semper ipsum a dui faucibus
+                  | feugiat. Ut eu neque vel <a href="#">justo consequat pretium</a>.
+                li <b>Morbi elementum</b> malesuada mi eget dapibus.
+
+      article
+        div.content
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas libero massa,
+            | volutpat eget augue eu, aliquet feugiat mi. Sed nec nisi et mauris sagittis molestie
+            | vitae vitae sem.
+
+          hr
+
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas libero massa,
+            | volutpat eget augue eu, aliquet feugiat mi. Sed nec nisi et mauris sagittis molestie
+            | vitae vitae sem.
+
+          blockquote
+            p Nulla in venenatis enim. Curabitur massa lectus, condimentum ut dolor et, sollicitudin
+              | scelerisque ipsum. Maecenas volutpat turpis eros, quis gravida lorem faucibus at.
+              | Integer eget aliquam lacus. Fusce at finibus sem.
+
+          pre: code
+            | Sed commodo mi ac imperdiet commodo. Vestibulum semper ipsum a
+            | dui faucibus feugiat. Ut eu neque vel justo consequat pretium.
+            | Aliquam erat volutpat. Suspendisse auctor ipsum ut magna
+            | rhoncus, non accumsan magna mattis.
+
+      article
+        div.content
+          div.event-list
+            section.event
+              aside
+                time Jan <span>12</span>
+                a(href="#") RSVP
+              div
+                h2 <a href="#">Lorem ipsum dolor sit amet</a>
+                p Maecenas libero massa, volutpat eget augue eu, aliquet feugiat mi. Sed nec
+                  | nisi et mauris sagittis molestie vitae vitae sem. Sed commodo mi ac imperdiet
+                  | commodo. Vestibulum semper ipsum a dui faucibus feugiat. Ut eu neque vel
+                  | justo consequat pretium. Aliquam erat volutpat.
+
+            section.event
+              aside
+                time Jan <span>13</span>
+                a(href="#") Map
+              div
+                h2 <a href="#">Morbi elementum malesuada mi</a>
+                p Suspendisse auctor ipsum ut magna rhoncus, non accumsan magna mattis.
+                  | Quisque vitae pulvinar mi, et congue augue. Integer eu mattis libero.
+                  | Sed ultrices lorem non ipsum suscipit luctus.
+
+            hr
+
+            section.event
+              aside
+                time Feb <span>23</span>
+                a(href="#") Details
+              div
+                h2 <a href="#">Morbi elementum malesuada mi</a>
+                p Suspendisse auctor ipsum ut magna rhoncus, non accumsan magna mattis.
+                  | Quisque vitae pulvinar mi, et congue augue. Integer eu mattis libero.
+                  | Sed ultrices lorem non ipsum suscipit luctus.
+
+      article
+        div.content
+          div.feature-list
+            h2 <strong class="update">Update</strong>Lorem ipsum dolor sit amet
+            p Maecenas libero massa, volutpat eget augue eu, aliquet feugiat mi. Sed nec
+              | nisi et mauris sagittis molestie vitae vitae sem.
+
+            h2 <strong class="new">New</strong>Lorem ipsum dolor sit amet
+            p Maecenas libero massa, volutpat eget augue eu, aliquet feugiat mi. Sed nec
+              | nisi et mauris sagittis molestie vitae vitae sem.
+            p: em Nulla in venenatis enim. Curabitur massa lectus, condimentum ut dolor et, sollicitudin
+              | scelerisque ipsum.
+
+            h2 <strong class="new">New</strong>Lorem ipsum dolor sit amet
+            p Maecenas libero massa, volutpat eget augue eu, aliquet feugiat mi. Sed nec
+              | nisi et mauris sagittis molestie vitae vitae sem.
+
+      article
+        div.content
+          p <strong>Nulla in venenatis enim.</strong> Curabitur massa lectus, condimentum ut dolor et, sollicitudin
+            | scelerisque ipsum. Maecenas volutpat turpis eros, quis gravida lorem faucibus at.
+            | Integer eget aliquam lacus. Fusce at finibus sem.
+
+          hr
+
+          div.map-image
+            a(href="http://maps.google.com/maps?q=Berlin+Hbf&z=15", target="_blank")
+              img(src="https://maps.googleapis.com/maps/api/staticmap?center=Berlin+Hbf&zoom=15&size=640x280&sensor=false&scale=1", height="280", width="640")
+
+          p Nulla in venenatis enim. Curabitur massa lectus, condimentum ut dolor et, sollicitudin
+            | scelerisque ipsum. Maecenas volutpat turpis eros, quis gravida lorem faucibus at.
+            | Integer eget aliquam lacus. Fusce at finibus sem.
+
+          div.map-details
+            dl
+              dt When:
+              dd Lorem ipsum sit amet.
+              dt Where:
+              dd Consectetur adipiscing elit.
+
+          p.call-to-action
+            | Lorem ipsum dolor sit amet.
+            a.button(href="#") Consectetur adipiscing elit
