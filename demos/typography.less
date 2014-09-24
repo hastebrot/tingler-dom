@@ -26,7 +26,6 @@ strong, b {
   font-weight: 500;
 }
 
-
 a {
   color: #008CDD;
   text-decoration: none;
@@ -36,18 +35,31 @@ a:focus {
   outline: thin dotted;
 }
 
-article {
+#blog-header {
   width: 746px;
-  margin: 50px auto;
+  margin: 40px auto;
+}
+
+#blog-header h1 {
+  font-weight: 300;
+  font-size: 3em;
+  color: #6F7C82;
+}
+
+article {
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e7e7e7;
+
+  width: 746px;
+  margin: 0 auto 50px;
   background: #FFF;
   padding: 50px 0px;
-  border: 1px solid #EAECEE;
   position: relative;
 
   header {
     text-align: center;
     width: 578px;
-    margin: 0px auto;
+    margin: 0px auto 45px;
 
     h1 {
       margin: 0px;
@@ -149,10 +161,11 @@ article {
   }
 
   .content blockquote {
+    font-style: italic;
     background: none repeat scroll 0% 0% #FAFAFB;
     border-width: 1px 0px;
     border-style: solid none;
-    border-color: #F0F2F3 -moz-use-text-color;
+    border-color: #e7e7e7 -moz-use-text-color;
     -moz-border-top-colors: none;
     -moz-border-right-colors: none;
     -moz-border-bottom-colors: none;
@@ -178,7 +191,7 @@ article {
     border-right: 0px none;
     border-width: 1px 0px 0px;
     border-style: solid none none;
-    border-color: #F1F3F3 -moz-use-text-color -moz-use-text-color;
+    border-color: #e0e0e0 -moz-use-text-color -moz-use-text-color;
     -moz-border-top-colors: none;
     -moz-border-right-colors: none;
     -moz-border-bottom-colors: none;
@@ -204,10 +217,16 @@ article {
     border-right: 0px none !important;
   }
 
+  .content code, .content tt {
+    color: #292E31;
+    font-weight: 500;
+    border-radius: 3px;
+  }
+
   .content pre, .content code, .content tt {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     background: #FAFAFB;
-    border: 1px solid #F0F2F3;
+    border: 1px solid #e7e7e7;
     padding: 0px 3px;
   }
 
@@ -347,7 +366,6 @@ article {
       left: 0px;
     }
 
-
     .call-to-action.borderless {
       background: none repeat scroll 0px center transparent;
       border: 0px none;
@@ -356,8 +374,8 @@ article {
 
     .call-to-action {
       margin: 35px 0px 15px;
-      background: none repeat scroll 0% 0% #F7F9FA;
-      border: 1px solid #E8EAEB;
+      background: none repeat scroll 0% 0% #FAFAFB;
+      border: 1px solid #e7e7e7;
       border-radius: 5px;
       text-align: center;
       color: #6F7C82;
@@ -403,7 +421,7 @@ article {
       bottom: 0px;
       border-radius: 5px;
       box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-      background: url('map_position.svg') no-repeat scroll center center transparent;
+      background: url("map_position.svg") no-repeat scroll center center transparent;
     }
 
     .map-details {
@@ -421,7 +439,7 @@ article {
     }
 
     .map-details dd {
-      border-bottom: 1px solid #E8EAEB;
+      border-bottom: 1px solid #e7e7e7;
       margin: 0px;
       padding: 11px 0px 11px 90px;
     }
@@ -431,8 +449,6 @@ article {
     }
 
   }
-
-
 
 }
 article .content p p, article .content ul p, article .content ol p, article .content blockquote p, article .content p ul, article .content ul ul, article .content ol ul, article .content blockquote ul, article .content p ol, article .content ul ol, article .content ol ol, article .content blockquote ol, article .content p blockquote, article .content ul blockquote, article .content ol blockquote, article .content blockquote blockquote {

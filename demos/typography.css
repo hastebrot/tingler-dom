@@ -29,18 +29,28 @@ a {
 a:focus {
   outline: thin dotted;
 }
-article {
+#blog-header {
   width: 746px;
-  margin: 50px auto;
+  margin: 40px auto;
+}
+#blog-header h1 {
+  font-weight: 300;
+  font-size: 3em;
+  color: #6F7C82;
+}
+article {
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e7e7e7;
+  width: 746px;
+  margin: 0 auto 50px;
   background: #FFF;
   padding: 50px 0px;
-  border: 1px solid #EAECEE;
   position: relative;
 }
 article header {
   text-align: center;
   width: 578px;
-  margin: 0px auto;
+  margin: 0px auto 45px;
 }
 article header h1 {
   margin: 0px;
@@ -129,10 +139,11 @@ article .content blockquote {
   padding-right: 84px;
 }
 article .content blockquote {
+  font-style: italic;
   background: none repeat scroll 0% 0% #FAFAFB;
   border-width: 1px 0px;
   border-style: solid none;
-  border-color: #f0f2f3 -moz-use-text-color;
+  border-color: #e7e7e7 -moz-use-text-color;
   -moz-border-top-colors: none;
   -moz-border-right-colors: none;
   -moz-border-bottom-colors: none;
@@ -155,7 +166,7 @@ article hr {
   border-right: 0px none;
   border-width: 1px 0px 0px;
   border-style: solid none none;
-  border-color: #f1f3f3 -moz-use-text-color -moz-use-text-color;
+  border-color: #e0e0e0 -moz-use-text-color -moz-use-text-color;
   -moz-border-top-colors: none;
   -moz-border-right-colors: none;
   -moz-border-bottom-colors: none;
@@ -178,12 +189,18 @@ article .content pre {
   border-left: 0px none !important;
   border-right: 0px none !important;
 }
+article .content code,
+article .content tt {
+  color: #292E31;
+  font-weight: 500;
+  border-radius: 3px;
+}
 article .content pre,
 article .content code,
 article .content tt {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   background: #FAFAFB;
-  border: 1px solid #F0F2F3;
+  border: 1px solid #e7e7e7;
   padding: 0px 3px;
 }
 article .content pre code {
@@ -307,8 +324,8 @@ article .content .call-to-action.borderless {
 }
 article .content .call-to-action {
   margin: 35px 0px 15px;
-  background: none repeat scroll 0% 0% #F7F9FA;
-  border: 1px solid #E8EAEB;
+  background: none repeat scroll 0% 0% #FAFAFB;
+  border: 1px solid #e7e7e7;
   border-radius: 5px;
   text-align: center;
   color: #6F7C82;
@@ -349,7 +366,7 @@ article .content .map-image a:after {
   bottom: 0px;
   border-radius: 5px;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  background: url('map_position.svg') no-repeat scroll center center transparent;
+  background: url("map_position.svg") no-repeat scroll center center transparent;
 }
 article .content .map-details {
   width: 100%;
@@ -364,7 +381,7 @@ article .content .map-details dt {
   padding: 11px 0px;
 }
 article .content .map-details dd {
-  border-bottom: 1px solid #E8EAEB;
+  border-bottom: 1px solid #e7e7e7;
   margin: 0px;
   padding: 11px 0px 11px 90px;
 }
