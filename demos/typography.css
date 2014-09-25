@@ -26,7 +26,7 @@ article {
   border: 1px solid #e7e7e7;
   width: 746px;
   margin: 0 auto 50px;
-  background: #FFF;
+  background: #fff;
   padding: 50px 0;
   position: relative;
 }
@@ -37,7 +37,7 @@ article header {
 }
 article header h1 {
   margin: 0;
-  color: #292E31;
+  color: #292e31;
   font-size: 3em;
   line-height: 1.5;
   font-weight: 400;
@@ -45,21 +45,22 @@ article header h1 {
 }
 article header p {
   font-size: 1.7em;
-  margin: 5px 0 0;
-  color: #939DA3;
+  line-height: 1.9em;
+  color: #939da3;
+  margin: 5px 0px 0px;
 }
 article .content {
   width: 578px;
   margin: 0 auto;
-  color: #4C555A;
+  color: #4c555a;
 }
-p {
+article .content p {
   font-size: 1.7em;
-  line-height: 1.9;
+  line-height: 1.9em;
   margin: 15px 0;
   padding: 0;
 }
-p.lead {
+article .content p.lead {
   font-weight: 500;
   font-size: 1.7em;
   line-height: 1.9;
@@ -70,7 +71,7 @@ article .content b {
   font-weight: 500;
 }
 article .content a {
-  color: #008CDD;
+  color: #008cdd;
   text-decoration: none;
 }
 article .content a:focus {
@@ -86,7 +87,7 @@ article .content h2,
 article .content h3 {
   line-height: 1.7;
   font-weight: 500;
-  color: #292E31;
+  color: #292e31;
   margin: 25px 0 15px;
 }
 article .content > h2:before,
@@ -103,7 +104,7 @@ article .content ol {
 article .content ul,
 article .content ol {
   font-size: 1.7em;
-  line-height: 1.75;
+  line-height: 1.75em;
   margin: 25px 0;
   padding: 0;
 }
@@ -125,7 +126,7 @@ article .content ol li:before {
   counter-increment: listitem;
   content: counter(listitem, decimal);
   background: #a9b3b9;
-  color: #FFF;
+  color: #fff;
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
@@ -171,7 +172,7 @@ article .content hr {
 article .content blockquote {
   font-style: italic;
   font-weight: 300;
-  border-left: 8px solid #A9B3B9;
+  border-left: 8px solid #a9b3b9;
   font-size: 1.7em;
   margin: 45px -24px;
   padding: 0 16px;
@@ -180,13 +181,13 @@ article .content pre,
 article .content code,
 article .content tt {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  background: #FAFAFB;
+  background: #fafafb;
   border: 1px solid #e7e7e7;
   padding: 0 3px;
 }
 article .content code,
 article .content tt {
-  color: #292E31;
+  color: #292e31;
   font-weight: 500;
   border-radius: 3px;
 }
@@ -254,14 +255,14 @@ article .content .event-list .event aside time {
   letter-spacing: 1px;
   padding: 9px 0 5px;
   border-radius: 5px;
-  color: #6F7C82;
-  background: none repeat scroll 0% 0% #F5F6F7;
-  border: 1px solid #E3E6E8;
+  color: #6f7c82;
+  background: #f5f6f7;
+  border: 1px solid #e3e6e8;
 }
 article .content .event-list .event aside time span {
   display: block;
   font-size: 30px;
-  color: #E04C4C;
+  color: #e04c4c;
   font-weight: 300;
 }
 article .content .event-list .event aside a {
@@ -282,11 +283,11 @@ article .content .feature-list p {
   margin-top: 0;
 }
 article .content .feature-list h2 strong.new {
-  background: none repeat scroll 0% 0% #50A92F;
+  background: #50a92f;
   width: 44px;
 }
 article .content .feature-list h2 strong.update {
-  background: none repeat scroll 0% 0% #939DA3;
+  background: #939da3;
   width: 62px;
   margin-left: -18px;
 }
@@ -305,17 +306,17 @@ article .content .feature-list h2 strong {
   left: 0;
 }
 article .content .call-to-action.borderless {
-  background: none repeat scroll 0 center transparent;
+  background: transparent;
   border: 0 none;
   padding-bottom: 0;
 }
 article .content .call-to-action {
   margin: 35px 0 15px;
-  background: none repeat scroll 0% 0% #FAFAFB;
+  background: #fafafb;
   border: 1px solid #e7e7e7;
   border-radius: 5px;
   text-align: center;
-  color: #6F7C82;
+  color: #6f7c82;
   padding: 20px;
 }
 article .content .call-to-action .button {
@@ -325,7 +326,7 @@ article .content .call-to-action .button {
   white-space: nowrap;
   margin: 0 8px;
   border-radius: 5px;
-  background: linear-gradient(to bottom, #52b6ef, #399fea) repeat scroll 0% 0% transparent;
+  background: linear-gradient(to bottom, #52b6ef, #399fea) transparent;
   color: #FFF;
   font-weight: 600;
   text-shadow: 0 -1px 0 #147bc6;
@@ -353,7 +354,7 @@ article .content .map-image a:after {
   bottom: 0;
   border-radius: 5px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  background: url("map_position.svg") no-repeat scroll center center transparent;
+  background: url("map_position.svg") transparent;
 }
 article .content .map-details {
   width: 100%;
@@ -364,7 +365,7 @@ article .content .map-details {
 article .content .map-details dt {
   float: left;
   font-weight: 500;
-  color: #292E31;
+  color: #292e31;
   padding: 11px 0;
 }
 article .content .map-details dd {
