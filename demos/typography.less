@@ -2,7 +2,7 @@ body {
   margin: 0px;
   font-size: 62.5%;
   color: #6F7C82;
-  font-family: "Roboto", Helvetica, Arial;
+  font-family: Roboto, Helvetica, Arial;
   font-weight: 300;
   font-style: normal;
 }
@@ -16,8 +16,8 @@ div#main {
 }
 
 p {
-  font-size: 1.6em;
-  line-height: 1.5em;
+  font-size: 1.7em;
+  line-height: 1.6em;
   padding: 0px;
   margin: 0px 0px 1em;
 }
@@ -71,7 +71,7 @@ article {
     }
 
     p {
-      font-size: 1.6em;
+      font-size: 1.7em;
       margin: 5px 0px 0px;
       color: #939DA3;
     }
@@ -84,13 +84,13 @@ article {
   }
 
   .content p {
-    font-size: 1.6em;
+    font-size: 1.7em;
     line-height: 1.9;
     margin: 15px 0px;
   }
 
   .content ul, .content ol {
-    font-size: 1.6em;
+    font-size: 1.7em;
     line-height: 1.75;
     margin: 25px 0px;
     padding: 0px;
@@ -113,10 +113,10 @@ article {
   }
 
   .content p.lead {
-    font-style: italic;
+    //font-style: italic;
+    font-weight: 500;
     font-size: 1.7em;
     line-height: 1.9;
-    //font-weight: 500;
     margin: 25px 0px;
   }
 
@@ -139,7 +139,7 @@ article {
     border-radius: 11px;
     position: absolute;
     left: -32px;
-    top: 2px;
+    top: 4px;
   }
 
   .content ul li:before {
@@ -150,7 +150,7 @@ article {
     background: #a9b3b9;
     border-radius: 50%;
     left: -24px;
-    top: 8px;
+    top: 10px;
   }
 
   .content blockquote {
@@ -161,7 +161,8 @@ article {
   }
 
   .content blockquote {
-    font-style: italic;
+    //font-style: italic;
+    font-weight: 500;
     background: none repeat scroll 0% 0% #FAFAFB;
     border-width: 1px 0px;
     border-style: solid none;
@@ -172,7 +173,6 @@ article {
     -moz-border-left-colors: none;
     border-image: none;
     font-size: 1.6em;
-    font-weight: 300;
     margin: 35px -84px;
     padding: 10px 84px;
   }
@@ -223,6 +223,14 @@ article {
     border-radius: 3px;
   }
 
+  .content > h2:before, .content > h3:before {
+    color: #a9b3b9;
+    content: "#";
+    position: absolute;
+    left: 62px;
+    text-align: right;
+  }
+
   .content pre, .content code, .content tt {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     background: #FAFAFB;
@@ -239,13 +247,13 @@ article {
   }
 
   h2 {
-    font-size: 1.9em;
+    font-size: 2.0em;
   }
   h3 {
-    font-size: 1.6em;
+    font-size: 1.7em;
   }
   .content h2, .content h3 {
-    line-height: 1.5;
+    line-height: 1.7;
     font-weight: 500;
     color: #292E31;
     margin: 25px 0px 15px;
@@ -298,7 +306,7 @@ article {
           time {
             text-align: center;
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -317,7 +325,7 @@ article {
           }
 
           a {
-            font-size: 14px;
+            font-size: 1.4em;
             margin-top: 10px;
             font-weight: 500;
             display: block;
@@ -359,7 +367,7 @@ article {
       position: absolute;
       box-sizing: border-box;
       height: 24px;
-      margin-top: 3px;
+      margin-top: 6px;
       border-radius: 11px;
       padding-top: 5px;
       color: #FFF;
@@ -427,8 +435,8 @@ article {
     .map-details {
       width: 100%;
       margin: 15px 0px;
-      font-size: 1.5em;
-      line-height: 1.5;
+      font-size: 1.7em;
+      line-height: 1.6;
     }
 
     .map-details dt {
