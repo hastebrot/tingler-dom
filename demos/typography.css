@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-size: 62.5%;
-  color: #6f7c82;
+  color: #4c555a;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -85,7 +85,7 @@ article .content h3 {
 }
 article .content h2,
 article .content h3 {
-  line-height: 1.7;
+  line-height: 1.7em;
   font-weight: 500;
   color: #292e31;
   margin: 25px 0 15px;
@@ -161,7 +161,7 @@ article .content hr {
   border-right: 0 none;
   border-width: 1px 0 0;
   border-style: solid none none;
-  border-color: #e0e0e0 -moz-use-text-color -moz-use-text-color;
+  border-color: #e7e7e7 -moz-use-text-color -moz-use-text-color;
   -moz-border-top-colors: none;
   -moz-border-right-colors: none;
   -moz-border-bottom-colors: none;
@@ -200,7 +200,7 @@ article .content pre {
 article .content pre {
   font-weight: 500;
   font-size: 1.6em;
-  line-height: 1.6;
+  line-height: 1.6em;
   white-space: pre-wrap;
   margin: 35px -84px !important;
   padding: 25px 84px !important;

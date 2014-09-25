@@ -5,8 +5,18 @@
 @default-font: Roboto, Helvetica, Arial, sans-serif;
 @monospace-font: Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@background-outer: #f5f7f9;
-@background-inner: #fff;
+@outer-background: #f5f7f9;
+@inner-background: #fff;
+
+@default-color: #4c555a;
+@link-color: #008cdd;
+@title-color: #6f7c82;
+@heading-color: #292e31;
+@subtitle-color: #939da3;
+@margin-color: #a9b3b9;
+
+@section-background: #fafafb;
+@section-border: #e7e7e7;
 
 //-------------------------------------------------------------------------------------------------
 // CONTAINER.
@@ -15,14 +25,14 @@
 body {
   margin: 0;
   font-size: 62.5%;
-  color: #6f7c82;
+  color: @default-color;
   font-family: @default-font;
   font-weight: 300;
   font-style: normal;
 }
 
 body#blog {
-  background: @background-outer;
+  background: @outer-background;
 
   div#main {
     padding: 0 10px;
@@ -34,7 +44,7 @@ body#blog {
       h1 {
         font-weight: 300;
         font-size: 3em;
-        color: #6f7c82;
+        color: @title-color;
       }
     }
   }
@@ -46,8 +56,8 @@ body#blog {
 
 article {
   position: relative;
-  background: @background-inner;
-  border: 1px solid #e7e7e7;
+  background: @inner-background;
+  border: 1px solid @section-border;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   width: 746px;
   margin: 0 auto 50px;
@@ -60,7 +70,7 @@ article {
 
     h1 {
       margin: 0;
-      color: #292e31;
+      color: @heading-color;
       font-size: 3em;
       line-height: 1.5;
       font-weight: 400;
@@ -70,7 +80,7 @@ article {
     p {
       font-size: 1.7em;
       line-height: 1.9em;
-      color: #939da3;
+      color: @subtitle-color;
       margin: 5px 0 0;
     }
   }
@@ -78,7 +88,7 @@ article {
   .content {
     width: 578px;
     margin: 0 auto;
-    color: #4c555a;
+    color: @default-color;
   }
 }
 
@@ -112,7 +122,7 @@ article .content {
   }
 
   a {
-    color: #008cdd;
+    color: @link-color;
     text-decoration: none;
   }
 
@@ -135,14 +145,14 @@ article .content {
   }
 
   h2, h3 {
-    line-height: 1.7;
+    line-height: 1.7em;
     font-weight: 500;
-    color: #292e31;
+    color: @heading-color;
     margin: 25px 0 15px;
   }
 
   > h2:before, > h3:before {
-    color: #a9b3b9;
+    color: @margin-color;
     content: "#";
     position: absolute;
     left: 62px;
@@ -185,7 +195,7 @@ article .content {
   ol li:before {
     counter-increment: listitem;
     content: counter(listitem, decimal);
-    background: #a9b3b9;
+    background: @margin-color;
     color: #fff;
     font-size: 13px;
     font-weight: 500;
@@ -205,7 +215,7 @@ article .content {
     position: absolute;
     width: 12px;
     height: 12px;
-    background: #a9b3b9;
+    background: @margin-color;
     border-radius: 50%;
     left: -24px;
     top: 10px;
@@ -231,7 +241,7 @@ article .content {
     border-right: 0 none;
     border-width: 1px 0 0;
     border-style: solid none none;
-    border-color: #e0e0e0 -moz-use-text-color -moz-use-text-color;
+    border-color: @section-border -moz-use-text-color -moz-use-text-color;
     -moz-border-top-colors: none;
     -moz-border-right-colors: none;
     -moz-border-bottom-colors: none;
@@ -249,7 +259,7 @@ article .content {
   blockquote {
     font-style: italic;
     font-weight: 300;
-    border-left: 8px solid #a9b3b9;
+    border-left: 8px solid @margin-color;
     font-size: 1.7em;
     margin: 45px -24px;
     padding: 0 16px;
@@ -263,8 +273,8 @@ article .content {
 article .content {
   pre, code, tt {
     font-family: @monospace-font;
-    background: #fafafb;
-    border: 1px solid #e7e7e7;
+    background: @section-background;
+    border: 1px solid @section-border;
     padding: 0 3px;
   }
 
@@ -284,7 +294,7 @@ article .content {
   pre {
     font-weight: 500;
     font-size: 1.6em;
-    line-height: 1.6;
+    line-height: 1.6em;
     white-space: pre-wrap;
     margin: 35px -84px !important;
     padding: 25px 84px !important;
