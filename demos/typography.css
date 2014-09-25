@@ -1,5 +1,5 @@
 body {
-  margin: 0px;
+  margin: 0;
   font-size: 62.5%;
   color: #6F7C82;
   font-family: Roboto, Helvetica, Arial;
@@ -12,26 +12,9 @@ body#blog {
 div#main {
   padding: 0 10px;
 }
-p {
-  font-size: 1.7em;
-  line-height: 1.6em;
-  padding: 0px;
-  margin: 0px 0px 1em;
-}
-strong,
-b {
-  font-weight: 500;
-}
-a {
-  color: #008CDD;
-  text-decoration: none;
-}
-a:focus {
-  outline: thin dotted;
-}
 #blog-header {
   width: 746px;
-  margin: 40px auto;
+  margin: 40px auto 20px;
 }
 #blog-header h1 {
   font-weight: 300;
@@ -39,21 +22,21 @@ a:focus {
   color: #6F7C82;
 }
 article {
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #e7e7e7;
   width: 746px;
   margin: 0 auto 50px;
   background: #FFF;
-  padding: 50px 0px;
+  padding: 50px 0;
   position: relative;
 }
 article header {
   text-align: center;
   width: 578px;
-  margin: 0px auto 45px;
+  margin: 0 auto 45px;
 }
 article header h1 {
-  margin: 0px;
+  margin: 0;
   color: #292E31;
   font-size: 3em;
   line-height: 1.5;
@@ -62,48 +45,81 @@ article header h1 {
 }
 article header p {
   font-size: 1.7em;
-  margin: 5px 0px 0px;
+  margin: 5px 0 0;
   color: #939DA3;
 }
 article .content {
   width: 578px;
-  margin: 0px auto;
+  margin: 0 auto;
   color: #4C555A;
 }
-article .content p {
+p {
   font-size: 1.7em;
   line-height: 1.9;
-  margin: 15px 0px;
+  margin: 15px 0;
+  padding: 0;
+}
+p.lead {
+  font-weight: 500;
+  font-size: 1.7em;
+  line-height: 1.9;
+  margin: 25px 0;
+}
+article .content strong,
+article .content b {
+  font-weight: 500;
+}
+article .content a {
+  color: #008CDD;
+  text-decoration: none;
+}
+article .content a:focus {
+  outline: thin dotted;
+}
+article .content h2 {
+  font-size: 2.0em;
+}
+article .content h3 {
+  font-size: 1.7em;
+}
+article .content h2,
+article .content h3 {
+  line-height: 1.7;
+  font-weight: 500;
+  color: #292E31;
+  margin: 25px 0 15px;
+}
+article .content > h2:before,
+article .content > h3:before {
+  color: #a9b3b9;
+  content: "#";
+  position: absolute;
+  left: 62px;
+  text-align: right;
+}
+article .content ol {
+  counter-reset: listitem;
 }
 article .content ul,
 article .content ol {
   font-size: 1.7em;
   line-height: 1.75;
-  margin: 25px 0px;
-  padding: 0px;
+  margin: 25px 0;
+  padding: 0;
 }
-article ul li {
-  margin: 15px 0px;
+article .content ul li {
+  margin: 15px 0;
   list-style: none outside none;
   position: relative;
 }
-article ol li {
-  margin: 15px 0px;
+article .content ol li {
+  margin: 15px 0;
   list-style: none outside none;
   position: relative;
 }
 article .content li > ul,
 article .content li > ol {
   padding-left: 50px;
-}
-article .content p.lead {
-  font-weight: 500;
-  font-size: 1.7em;
-  line-height: 1.9;
-  margin: 25px 0px;
-}
-article .content ol {
-  counter-reset: listitem;
 }
 article .content ol li:before {
   counter-increment: listitem;
@@ -132,38 +148,17 @@ article .content ul li:before {
   left: -24px;
   top: 10px;
 }
-article .content blockquote {
-  margin-left: -84px;
-  margin-right: -84px;
-  padding-left: 84px;
-  padding-right: 84px;
-}
-article .content blockquote {
-  font-weight: 500;
-  background: none repeat scroll 0% 0% #FAFAFB;
-  border-width: 1px 0px;
-  border-style: solid none;
-  border-color: #e7e7e7 -moz-use-text-color;
-  -moz-border-top-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  border-image: none;
-  font-size: 1.7em;
-  margin: 35px -84px;
-  padding: 10px 84px;
-}
-article hr {
+article .content hr {
   margin-left: -84px;
   margin-right: -84px;
 }
-article hr {
+article .content hr {
   box-sizing: content-box;
-  height: 0px;
+  height: 0;
 }
-article hr {
-  border-right: 0px none;
-  border-width: 1px 0px 0px;
+article .content hr {
+  border-right: 0 none;
+  border-width: 1px 0 0;
   border-style: solid none none;
   border-color: #e0e0e0 -moz-use-text-color -moz-use-text-color;
   -moz-border-top-colors: none;
@@ -172,6 +167,28 @@ article hr {
   -moz-border-left-colors: none;
   border-image: none;
   margin: 40px -84px;
+}
+article .content blockquote {
+  font-style: italic;
+  font-weight: 300;
+  border-left: 8px solid #A9B3B9;
+  font-size: 1.7em;
+  margin: 45px -24px;
+  padding: 0 16px;
+}
+article .content pre,
+article .content code,
+article .content tt {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  background: #FAFAFB;
+  border: 1px solid #e7e7e7;
+  padding: 0 3px;
+}
+article .content code,
+article .content tt {
+  color: #292E31;
+  font-weight: 500;
+  border-radius: 3px;
 }
 article .content pre {
   margin-left: -84px;
@@ -183,77 +200,40 @@ article .content pre {
   font-weight: 500;
   font-size: 1.6em;
   line-height: 1.6;
+  white-space: pre-wrap;
   margin: 35px -84px !important;
   padding: 25px 84px !important;
-  border-left: 0px none !important;
-  border-right: 0px none !important;
-}
-article .content code,
-article .content tt {
-  color: #292E31;
-  font-weight: 500;
-  border-radius: 3px;
-}
-article .content > h2:before,
-article .content > h3:before {
-  color: #a9b3b9;
-  content: "#";
-  position: absolute;
-  left: 62px;
-  text-align: right;
-}
-article .content pre,
-article .content code,
-article .content tt {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  background: #FAFAFB;
-  border: 1px solid #e7e7e7;
-  padding: 0px 3px;
+  border-left: 0 none !important;
+  border-right: 0 none !important;
 }
 article .content pre code {
-  border: 0px none;
-  background: none repeat scroll 0px center transparent;
-  padding: 0px;
+  border: 0 none;
+  background: none repeat scroll 0 center transparent;
+  padding: 0;
   font-weight: inherit;
   color: inherit;
 }
-article h2 {
-  font-size: 2.0em;
+article .content .hug-top {
+  margin-top: 0;
 }
-article h3 {
-  font-size: 1.7em;
-}
-article .content h2,
-article .content h3 {
-  line-height: 1.7;
-  font-weight: 500;
-  color: #292E31;
-  margin: 25px 0px 15px;
-}
-article pre {
-  white-space: pre-wrap;
-}
-article .image-center {
+article .content .image-center {
   margin-left: -84px;
   margin-right: -84px;
 }
-article .image-center {
+article .content .image-center {
   text-align: center;
   margin: 35px -150px;
 }
-article .content .hug-top {
-  margin-top: 0px;
-}
 article .content .image-left {
   float: left;
-  margin: 15px 35px 15px 0px;
+  margin: 15px 35px 15px 0;
 }
 article .content .image-right {
   float: right;
-  margin: 15px 0px 15px 35px;
+  margin: 15px 0 15px 35px;
 }
 article .content .event-list {
-  margin: 35px 0px;
+  margin: 35px 0;
 }
 article .content .event-list .event {
   padding-left: 100px;
@@ -261,7 +241,7 @@ article .content .event-list .event {
 }
 article .content .event-list .event aside {
   position: absolute;
-  left: 0px;
+  left: 0;
   width: 70px;
   text-align: center;
 }
@@ -272,7 +252,7 @@ article .content .event-list .event aside time {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 9px 0px 5px;
+  padding: 9px 0 5px;
   border-radius: 5px;
   color: #6F7C82;
   background: none repeat scroll 0% 0% #F5F6F7;
@@ -291,7 +271,7 @@ article .content .event-list .event aside a {
   display: block;
 }
 article .content .feature-list {
-  margin: 35px 0px;
+  margin: 35px 0;
   padding-left: 60px;
   position: relative;
 }
@@ -299,7 +279,7 @@ article .content .feature-list h2 {
   margin-bottom: 5px;
 }
 article .content .feature-list p {
-  margin-top: 0px;
+  margin-top: 0;
 }
 article .content .feature-list h2 strong.new {
   background: none repeat scroll 0% 0% #50A92F;
@@ -322,15 +302,15 @@ article .content .feature-list h2 strong {
   border-radius: 11px;
   padding-top: 5px;
   color: #FFF;
-  left: 0px;
+  left: 0;
 }
 article .content .call-to-action.borderless {
-  background: none repeat scroll 0px center transparent;
-  border: 0px none;
-  padding-bottom: 0px;
+  background: none repeat scroll 0 center transparent;
+  border: 0 none;
+  padding-bottom: 0;
 }
 article .content .call-to-action {
-  margin: 35px 0px 15px;
+  margin: 35px 0 15px;
   background: none repeat scroll 0% 0% #FAFAFB;
   border: 1px solid #e7e7e7;
   border-radius: 5px;
@@ -339,23 +319,23 @@ article .content .call-to-action {
   padding: 20px;
 }
 article .content .call-to-action .button {
-  border: 0px none;
+  border: 0 none;
   padding: 9px 12px 8px;
   line-height: 1;
   white-space: nowrap;
-  margin: 0px 8px;
+  margin: 0 8px;
   border-radius: 5px;
   background: linear-gradient(to bottom, #52b6ef, #399fea) repeat scroll 0% 0% transparent;
   color: #FFF;
   font-weight: 600;
-  text-shadow: 0px -1px 0px #147bc6;
+  text-shadow: 0 -1px 0 #147bc6;
   box-sizing: border-box;
-  box-shadow: 0px 0px 0px 1px rgba(20, 123, 198, 0.3) inset, 0px -1px 0px #147bc6 inset, 0px 1px 0px rgba(201, 206, 209, 0.3);
+  box-shadow: 0 0 0 1px rgba(20, 123, 198, 0.3) inset, 0 -1px 0 #147bc6 inset, 0 1px 0 rgba(201, 206, 209, 0.3);
 }
 article .content .map-image {
   width: 578px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
 }
 article .content .map-image {
   height: 280px;
@@ -367,17 +347,17 @@ article .content .map-image {
 article .content .map-image a:after {
   content: "";
   position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   border-radius: 5px;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   background: url("map_position.svg") no-repeat scroll center center transparent;
 }
 article .content .map-details {
   width: 100%;
-  margin: 15px 0px;
+  margin: 15px 0;
   font-size: 1.7em;
   line-height: 1.6;
 }
@@ -385,15 +365,15 @@ article .content .map-details dt {
   float: left;
   font-weight: 500;
   color: #292E31;
-  padding: 11px 0px;
+  padding: 11px 0;
 }
 article .content .map-details dd {
   border-bottom: 1px solid #e7e7e7;
-  margin: 0px;
-  padding: 11px 0px 11px 90px;
+  margin: 0;
+  padding: 11px 0 11px 90px;
 }
 article .content .map-details dd:last-child {
-  border: 0px none;
+  border: 0 none;
 }
 article .content p p,
 article .content ul p,
