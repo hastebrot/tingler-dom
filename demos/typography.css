@@ -1,39 +1,39 @@
 body {
   margin: 0;
   font-size: 62.5%;
-  color: #6F7C82;
-  font-family: Roboto, Helvetica, Arial;
+  color: #6f7c82;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 body#blog {
-  background: #F5F7F9;
+  background: #f5f7f9;
 }
-div#main {
+body#blog div#main {
   padding: 0 10px;
 }
-#blog-header {
+body#blog div#main #blog-header {
   width: 746px;
   margin: 40px auto 20px;
 }
-#blog-header h1 {
+body#blog div#main #blog-header h1 {
   font-weight: 300;
   font-size: 3em;
-  color: #6F7C82;
+  color: #6f7c82;
 }
 article {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: #ffffff;
   border: 1px solid #e7e7e7;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   width: 746px;
   margin: 0 auto 50px;
-  background: #fff;
   padding: 50px 0;
-  position: relative;
 }
 article header {
-  text-align: center;
-  width: 578px;
   margin: 0 auto 45px;
+  width: 578px;
+  text-align: center;
 }
 article header h1 {
   margin: 0;
@@ -47,7 +47,7 @@ article header p {
   font-size: 1.7em;
   line-height: 1.9em;
   color: #939da3;
-  margin: 5px 0px 0px;
+  margin: 5px 0 0;
 }
 article .content {
   width: 578px;
@@ -62,7 +62,7 @@ article .content p {
 }
 article .content p.lead {
   font-weight: 500;
-  font-size: 1.7em;
+  font-size: 1.8em;
   line-height: 1.9;
   margin: 25px 0;
 }
@@ -233,6 +233,24 @@ article .content .image-right {
   float: right;
   margin: 15px 0 15px 35px;
 }
+article .content p p,
+article .content ul p,
+article .content ol p,
+article .content blockquote p,
+article .content p ul,
+article .content ul ul,
+article .content ol ul,
+article .content blockquote ul,
+article .content p ol,
+article .content ul ol,
+article .content ol ol,
+article .content blockquote ol,
+article .content p blockquote,
+article .content ul blockquote,
+article .content ol blockquote,
+article .content blockquote blockquote {
+  font-size: 1em;
+}
 article .content .event-list {
   margin: 35px 0;
 }
@@ -354,7 +372,7 @@ article .content .map-image a:after {
   bottom: 0;
   border-radius: 5px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-  background: url("map_position.svg") transparent;
+  background: url("map_position.svg") no-repeat scroll center center transparent;
 }
 article .content .map-details {
   width: 100%;
@@ -375,22 +393,4 @@ article .content .map-details dd {
 }
 article .content .map-details dd:last-child {
   border: 0 none;
-}
-article .content p p,
-article .content ul p,
-article .content ol p,
-article .content blockquote p,
-article .content p ul,
-article .content ul ul,
-article .content ol ul,
-article .content blockquote ul,
-article .content p ol,
-article .content ul ol,
-article .content ol ol,
-article .content blockquote ol,
-article .content p blockquote,
-article .content ul blockquote,
-article .content ol blockquote,
-article .content blockquote blockquote {
-  font-size: 1em;
 }

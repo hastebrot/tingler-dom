@@ -1,28 +1,42 @@
+//-------------------------------------------------------------------------------------------------
+// VARIABLES.
+//-------------------------------------------------------------------------------------------------
+
+@default-font: Roboto, Helvetica, Arial, sans-serif;
+@monospace-font: Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@background-outer: #f5f7f9;
+@background-inner: #fff;
+
+//-------------------------------------------------------------------------------------------------
+// CONTAINER.
+//-------------------------------------------------------------------------------------------------
+
 body {
   margin: 0;
   font-size: 62.5%;
-  color: #6F7C82;
-  font-family: Roboto, Helvetica, Arial;
+  color: #6f7c82;
+  font-family: @default-font;
   font-weight: 300;
   font-style: normal;
 }
 
 body#blog {
-  background: #F5F7F9;
-}
+  background: @background-outer;
 
-div#main {
-  padding: 0 10px;
-}
+  div#main {
+    padding: 0 10px;
 
-#blog-header {
-  width: 746px;
-  margin: 40px auto 20px;
+    #blog-header {
+      width: 746px;
+      margin: 40px auto 20px;
 
-  h1 {
-    font-weight: 300;
-    font-size: 3em;
-    color: #6F7C82;
+      h1 {
+        font-weight: 300;
+        font-size: 3em;
+        color: #6f7c82;
+      }
+    }
   }
 }
 
@@ -31,19 +45,18 @@ div#main {
 //-------------------------------------------------------------------------------------------------
 
 article {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: @background-inner;
   border: 1px solid #e7e7e7;
-
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   width: 746px;
   margin: 0 auto 50px;
-  background: #fff;
   padding: 50px 0;
-  position: relative;
 
   header {
-    text-align: center;
-    width: 578px;
     margin: 0 auto 45px;
+    width: 578px;
+    text-align: center;
 
     h1 {
       margin: 0;
@@ -58,7 +71,7 @@ article {
       font-size: 1.7em;
       line-height: 1.9em;
       color: #939da3;
-      margin: 5px 0px 0px;
+      margin: 5px 0 0;
     }
   }
 
@@ -82,9 +95,8 @@ article .content {
   }
 
   p.lead {
-    //font-style: italic;
     font-weight: 500;
-    font-size: 1.7em;
+    font-size: 1.8em;
     line-height: 1.9;
     margin: 25px 0;
   }
@@ -250,7 +262,7 @@ article .content {
 
 article .content {
   pre, code, tt {
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-family: @monospace-font;
     background: #fafafb;
     border: 1px solid #e7e7e7;
     padding: 0 3px;
@@ -318,6 +330,32 @@ article .content {
     margin: 15px 0 15px 35px;
   }
 }
+
+//-------------------------------------------------------------------------------------------------
+// RESET.
+//-------------------------------------------------------------------------------------------------
+
+article .content {
+  p p,
+  ul p,
+  ol p,
+  blockquote p,
+  p ul,
+  ul ul,
+  ol ul,
+  blockquote ul,
+  p ol,
+  ul ol,
+  ol ol,
+  blockquote ol,
+  p blockquote,
+  ul blockquote,
+  ol blockquote,
+  blockquote blockquote {
+    font-size: 1em;
+  }
+}
+
 
 //-------------------------------------------------------------------------------------------------
 // EVENT-LIST.
@@ -482,7 +520,7 @@ article .content {
     bottom: 0;
     border-radius: 5px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-    background: url("map_position.svg")transparent;
+    background: url("map_position.svg") no-repeat scroll center center transparent;
   }
 
   .map-details {
@@ -507,26 +545,5 @@ article .content {
 
   .map-details dd:last-child {
     border: 0 none;
-  }
-}
-
-article .content {
-  p p,
-  ul p,
-  ol p,
-  blockquote p,
-  p ul,
-  ul ul,
-  ol ul,
-  blockquote ul,
-  p ol,
-  ul ol,
-  ol ol,
-  blockquote ol,
-  p blockquote,
-  ul blockquote,
-  ol blockquote,
-  blockquote blockquote {
-    font-size: 1em;
   }
 }
