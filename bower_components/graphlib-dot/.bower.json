@@ -1,0 +1,23 @@
+{
+  "name": "graphlib-dot",
+  "version": "0.5.0",
+  "main": [
+    "js/graphlib-dot.js",
+    "js/graphlib-dot.min.js"
+  ],
+  "ignore": [
+    "README.md"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/cpettitt/graphlib-dot-bower",
+  "_release": "0.5.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.0",
+    "commit": "450a82f384f7d958a6e7276e02e61a519d6d42c0"
+  },
+  "_source": "git://github.com/cpettitt/graphlib-dot-bower.git",
+  "_target": "~0.5.0",
+  "_originalSource": "graphlib-dot",
+  "_direct": true
+}

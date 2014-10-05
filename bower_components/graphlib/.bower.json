@@ -1,0 +1,25 @@
+{
+  "name": "graphlib",
+  "version": "0.8.0",
+  "main": [
+    "js/graphlib.js",
+    "js/graphlib.min.js"
+  ],
+  "ignore": [
+    "README.md"
+  ],
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "homepage": "https://github.com/cpettitt/graphlib-bower",
+  "_release": "0.8.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.8.0",
+    "commit": "17eb9ca28f068cd41fb80c217f829b988eea4777"
+  },
+  "_source": "git://github.com/cpettitt/graphlib-bower.git",
+  "_target": "~0.8.0",
+  "_originalSource": "graphlib",
+  "_direct": true
+}

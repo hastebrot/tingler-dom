@@ -1,0 +1,12 @@
+{
+  "name": "graphlib-dot",
+  "version": "0.5.0",
+  "main": [
+    "js/graphlib-dot.js",
+    "js/graphlib-dot.min.js"
+  ],
+  "ignore": [
+    "README.md"
+  ],
+  "dependencies": {}
+}
