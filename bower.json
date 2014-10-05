@@ -17,10 +17,12 @@
   },
   "devDependencies": {
     "dagre-d3": "~0.2.9",
+    "graphlib-dot": "~0.5.0",
     "highlightjs": "~8.0.0",
     "katex": "https://github.com/Khan/KaTeX/releases/download/v0.1.0/katex.tar.gz",
     "leaflet": "~0.7.3",
     "marked": "~0.3.2",
+    "polymer": "Polymer/polymer#~0.4.2",
     "tether": "~0.6.5",
     "roboto-fontface": "~0.2.0"
   }
