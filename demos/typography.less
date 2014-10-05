@@ -5,17 +5,18 @@
 @default-font: Roboto, Helvetica, Arial, sans-serif;
 @monospace-font: Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@outer-background: #f5f7f9;
+@article-width: 746px;
+@outer-background: #f7f7f7;
 @inner-background: #fff;
 
-@default-color: #4c555a;
+@default-color: #293237;
 @link-color: #008cdd;
-@title-color: #6f7c82;
+@title-color: #7d8b91;
 @heading-color: #292e31;
-@subtitle-color: #939da3;
-@margin-color: #a9b3b9;
+@subtitle-color: #7d8b91;
+@margin-color: #9aa4aa;
 
-@section-background: #fafafb;
+@section-background: #f7f7f7;
 @section-border: #e7e7e7;
 
 //-------------------------------------------------------------------------------------------------
@@ -31,22 +32,34 @@ body {
   font-style: normal;
 }
 
-body#blog {
+body#journal {
   background: @outer-background;
 
-  div#main {
-    padding: 0 10px;
+  #header-wrapper {
+    box-shadow: 0px 3px 13px 0px rgba(2, 3, 3, 0.1);
+    background: @inner-background;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid @section-border;
 
-    #blog-header {
-      width: 746px;
-      margin: 40px auto 20px;
+    header {
+      max-width: @article-width;
+      margin: 0 auto;
 
       h1 {
+        margin: 15px 0;
         font-weight: 300;
         font-size: 3em;
         color: @title-color;
       }
     }
+  }
+
+  #main-wrapper {
+    padding: 105px 10px 0;
   }
 }
 
@@ -54,12 +67,12 @@ body#blog {
 // ARTICLE.
 //-------------------------------------------------------------------------------------------------
 
-article {
+body#journal article {
   position: relative;
   background: @inner-background;
   border: 1px solid @section-border;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  width: 746px;
+  max-width: @article-width;
   margin: 0 auto 50px;
   padding: 50px 0;
 
@@ -72,14 +85,14 @@ article {
       margin: 0;
       color: @heading-color;
       font-size: 3em;
-      line-height: 1.5;
+      line-height: 1.7em;
       font-weight: 400;
       text-rendering: optimizelegibility;
     }
 
     p {
       font-size: 1.7em;
-      line-height: 1.9em;
+      line-height: 1.7em;
       color: @subtitle-color;
       margin: 5px 0 0;
     }
@@ -99,15 +112,16 @@ article {
 article .content {
   p {
     font-size: 1.7em;
-    line-height: 1.9em;
+    line-height: 1.7em;
     margin: 15px 0;
     padding: 0;
   }
 
   p.lead {
+    //text-transform: uppercase;
     font-weight: 500;
     font-size: 1.8em;
-    line-height: 1.9;
+    line-height: 1.7em;
     margin: 25px 0;
   }
 }
@@ -171,7 +185,7 @@ article .content {
 
   ul, ol {
     font-size: 1.7em;
-    line-height: 1.75em;
+    line-height: 1.7em;
     margin: 25px 0;
     padding: 0;
   }
@@ -199,7 +213,7 @@ article .content {
     color: #fff;
     font-size: 13px;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1em;
     text-align: center;
     padding: 5px;
     height: 12px;
@@ -227,11 +241,6 @@ article .content {
 //-------------------------------------------------------------------------------------------------
 
 article .content {
-  hr {
-    margin-left: -84px;
-    margin-right: -84px;
-  }
-
   hr {
     box-sizing: content-box;
     height: 0;
@@ -282,13 +291,6 @@ article .content {
     color: #292e31;
     font-weight: 500;
     border-radius: 3px;
-  }
-
-  pre {
-    margin-left: -84px;
-    margin-right: -84px;
-    padding-left: 84px;
-    padding-right: 84px;
   }
 
   pre {
@@ -407,7 +409,7 @@ article .content {
         }
 
         a {
-          font-size: 1.4em;
+          font-size: 1.7em;
           margin-top: 10px;
           font-weight: 500;
           display: block;
@@ -470,7 +472,7 @@ article .content {
 article .content {
   .call-to-action.borderless {
     background: transparent;
-    border: 0 none;
+    border: 0;
     padding-bottom: 0;
   }
 
@@ -484,16 +486,16 @@ article .content {
     padding: 20px;
 
     .button {
-      border: 0 none;
-      padding: 9px 12px 8px;
-      line-height: 1;
+      border: 0;
+      padding: 6px 12px 5px;
+      line-height: 1em;
       white-space: nowrap;
-      margin: 0 8px;
+      margin: 0 12px;
       border-radius: 5px;
       background: linear-gradient(to bottom, #52b6ef, #399fea) transparent;
-      color: #FFF;
+      color: #fff;
       font-weight: 600;
-      text-shadow: 0 -1px 0 #147BC6;
+      text-shadow: 0 -1px 0 #147bc6;
       box-sizing: border-box;
       box-shadow: 0 0 0 1px rgba(20, 123, 198, 0.3) inset,
         0 -1px 0 #147bc6 inset, 0 1px 0 rgba(201, 206, 209, 0.3);

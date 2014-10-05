@@ -6,18 +6,21 @@ html
     link(rel="stylesheet", href="../bower_components/roboto-fontface/roboto-fontface.css")
     //link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600")
 
-  body#blog
-    div#main
+  body#journal
 
-      header#blog-header
+    div#header-wrapper
+      header
         h1 PasteBread.Journal
 
+    div#main-wrapper
       article
         header
-          h1 Lorem Ipsum Dolor
+          h1 Lorem ipsum dolor sit amet
           p Sit amet, consectetur adipiscing elit
 
         div.content
+          //hr
+
           p.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas libero massa,
             | volutpat eget augue eu, aliquet feugiat mi. Sed nec nisi et mauris sagittis molestie
             | vitae vitae sem.
@@ -25,6 +28,8 @@ html
           p Nulla in venenatis enim. Curabitur massa lectus, condimentum ut dolor et, sollicitudin
             | scelerisque ipsum. Maecenas volutpat turpis eros, quis gravida lorem faucibus at.
             | Integer eget aliquam lacus. Fusce at finibus sem.
+
+          //hr
 
           h2 Morbi elementum malesuada mi
 
@@ -110,6 +115,8 @@ html
               | dui at neque placerat consequat at eget neque. Aenean justo tellus, scelerisque
               | sed nibh ut, sagittis laoreet sem.
 
+            p &mdash; Maecenas libero massa
+
           pre: code
             | Sed commodo mi ac imperdiet commodo. Vestibulum semper ipsum a
             | dui faucibus feugiat. Ut eu neque vel justo consequat pretium.
@@ -193,6 +200,14 @@ html
               dt Where:
               dd Consectetur adipiscing elit.
 
+          hr
+
           p.call-to-action
+            | Lorem ipsum dolor sit amet.
+            a.button(href="#") Consectetur adipiscing elit
+
+          hr
+
+          p.call-to-action.borderless
             | Lorem ipsum dolor sit amet.
             a.button(href="#") Consectetur adipiscing elit

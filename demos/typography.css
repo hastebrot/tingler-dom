@@ -1,69 +1,80 @@
 body {
   margin: 0;
   font-size: 62.5%;
-  color: #4c555a;
+  color: #293237;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
 }
-body#blog {
-  background: #f5f7f9;
+body#journal {
+  background: #f7f7f7;
 }
-body#blog div#main {
-  padding: 0 10px;
+body#journal #header-wrapper {
+  box-shadow: 0px 3px 13px 0px rgba(2, 3, 3, 0.1);
+  background: #ffffff;
+  position: fixed;
+  width: 100%;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #e7e7e7;
 }
-body#blog div#main #blog-header {
-  width: 746px;
-  margin: 40px auto 20px;
+body#journal #header-wrapper header {
+  max-width: 746px;
+  margin: 0 auto;
 }
-body#blog div#main #blog-header h1 {
+body#journal #header-wrapper header h1 {
+  margin: 15px 0;
   font-weight: 300;
   font-size: 3em;
-  color: #6f7c82;
+  color: #7d8b91;
 }
-article {
+body#journal #main-wrapper {
+  padding: 105px 10px 0;
+}
+body#journal article {
   position: relative;
   background: #ffffff;
   border: 1px solid #e7e7e7;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  width: 746px;
+  max-width: 746px;
   margin: 0 auto 50px;
   padding: 50px 0;
 }
-article header {
+body#journal article header {
   margin: 0 auto 45px;
   width: 578px;
   text-align: center;
 }
-article header h1 {
+body#journal article header h1 {
   margin: 0;
   color: #292e31;
   font-size: 3em;
-  line-height: 1.5;
+  line-height: 1.7em;
   font-weight: 400;
   text-rendering: optimizelegibility;
 }
-article header p {
+body#journal article header p {
   font-size: 1.7em;
-  line-height: 1.9em;
-  color: #939da3;
+  line-height: 1.7em;
+  color: #7d8b91;
   margin: 5px 0 0;
 }
-article .content {
+body#journal article .content {
   width: 578px;
   margin: 0 auto;
-  color: #4c555a;
+  color: #293237;
 }
 article .content p {
   font-size: 1.7em;
-  line-height: 1.9em;
+  line-height: 1.7em;
   margin: 15px 0;
   padding: 0;
 }
 article .content p.lead {
   font-weight: 500;
   font-size: 1.8em;
-  line-height: 1.9;
+  line-height: 1.7em;
   margin: 25px 0;
 }
 article .content strong,
@@ -92,7 +103,7 @@ article .content h3 {
 }
 article .content > h2:before,
 article .content > h3:before {
-  color: #a9b3b9;
+  color: #9aa4aa;
   content: "#";
   position: absolute;
   left: 62px;
@@ -104,7 +115,7 @@ article .content ol {
 article .content ul,
 article .content ol {
   font-size: 1.7em;
-  line-height: 1.75em;
+  line-height: 1.7em;
   margin: 25px 0;
   padding: 0;
 }
@@ -125,11 +136,11 @@ article .content li > ol {
 article .content ol li:before {
   counter-increment: listitem;
   content: counter(listitem, decimal);
-  background: #a9b3b9;
+  background: #9aa4aa;
   color: #fff;
   font-size: 13px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1em;
   text-align: center;
   padding: 5px;
   height: 12px;
@@ -144,14 +155,10 @@ article .content ul li:before {
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #a9b3b9;
+  background: #9aa4aa;
   border-radius: 50%;
   left: -24px;
   top: 10px;
-}
-article .content hr {
-  margin-left: -84px;
-  margin-right: -84px;
 }
 article .content hr {
   box-sizing: content-box;
@@ -172,7 +179,7 @@ article .content hr {
 article .content blockquote {
   font-style: italic;
   font-weight: 300;
-  border-left: 8px solid #a9b3b9;
+  border-left: 8px solid #9aa4aa;
   font-size: 1.7em;
   margin: 45px -24px;
   padding: 0 16px;
@@ -181,7 +188,7 @@ article .content pre,
 article .content code,
 article .content tt {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  background: #fafafb;
+  background: #f7f7f7;
   border: 1px solid #e7e7e7;
   padding: 0 3px;
 }
@@ -190,12 +197,6 @@ article .content tt {
   color: #292e31;
   font-weight: 500;
   border-radius: 3px;
-}
-article .content pre {
-  margin-left: -84px;
-  margin-right: -84px;
-  padding-left: 84px;
-  padding-right: 84px;
 }
 article .content pre {
   font-weight: 500;
@@ -284,7 +285,7 @@ article .content .event-list .event aside time span {
   font-weight: 300;
 }
 article .content .event-list .event aside a {
-  font-size: 1.4em;
+  font-size: 1.7em;
   margin-top: 10px;
   font-weight: 500;
   display: block;
@@ -325,7 +326,7 @@ article .content .feature-list h2 strong {
 }
 article .content .call-to-action.borderless {
   background: transparent;
-  border: 0 none;
+  border: 0;
   padding-bottom: 0;
 }
 article .content .call-to-action {
@@ -338,14 +339,14 @@ article .content .call-to-action {
   padding: 20px;
 }
 article .content .call-to-action .button {
-  border: 0 none;
-  padding: 9px 12px 8px;
-  line-height: 1;
+  border: 0;
+  padding: 6px 12px 5px;
+  line-height: 1em;
   white-space: nowrap;
-  margin: 0 8px;
+  margin: 0 12px;
   border-radius: 5px;
   background: linear-gradient(to bottom, #52b6ef, #399fea) transparent;
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   text-shadow: 0 -1px 0 #147bc6;
   box-sizing: border-box;
