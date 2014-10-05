@@ -45,10 +45,18 @@ var initSections = function() {
 
   $graphvizGraphSource.text(sanitizeText($graphvizGraphSource.text()));
 
-  var model = graphlibDot.parse($graphvizGraphSource.text());
+  var graphlibGraph = graphlibDot.read($graphvizGraphSource.text());
+  var dagreGraph = new dagreD3.Digraph();
+  _(graphlibGraph.nodes()).each(function(node) {
+    dagreGraph.addNode(node, graphlibGraph.node(node));
+  });
+  _(graphlibGraph.edges()).each(function(edge) {
+    dagreGraph.addEdge(null, edge.v, edge.w, graphlibGraph.edge(edge));
+  });
+
   var renderer = new dagreD3.Renderer();
   var layout = dagreD3.layout().nodeSep(20).rankDir("LR");
-  renderer.layout(layout).run(model, d3.select($graphvizGraphTarget.get(0)));
+  renderer.layout(layout).run(dagreGraph, d3.select($graphvizGraphTarget.get(0)));
 
   // GEOJSON MAP.
 
