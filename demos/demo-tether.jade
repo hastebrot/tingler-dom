@@ -1,7 +1,7 @@
 html
   head
     meta(charset="utf-8")
-    title tether demo
+    title Demo: Tether
 
     script(src="../bower_components/platform/platform.js")
     link(rel="import", href="../bower_components/polymer/layout.html")
@@ -14,8 +14,7 @@ html
     script(src="../bower_components/tether/js/tether.js")
     //script(src="../bower_components/tether/js/tether.min.js")
     //link(rel="stylesheet", href="../bower_components/tether/css/tether.css")
-    script(src="tether.js")
-
+    script(src="demo-tether.js")
 
   body
     style.
@@ -23,6 +22,11 @@ html
       body {
         font-family: Roboto, Helvetica, Arial, sans-serif;
         -font-size: 1.2rem;
+      }
+
+      .container {
+        max-width: 640px;
+        margin: 0 auto;
       }
 
       .demo .elem {
@@ -125,7 +129,7 @@ html
         padding: 24px 18px !important;
       }
 
-    div
+    div.container
       h2 1.1 Attachments
 
       div.demo#demo-attachment
@@ -154,7 +158,7 @@ html
         div.elem.orange A
         //div.elem.orange A
 
-    div
+    div.container
       h2 2.1 Tooltips
 
       div.demo#demo-tooltip
