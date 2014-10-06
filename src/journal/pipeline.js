@@ -1,18 +1,18 @@
-var renderMarkdownText = function($source, $target) {
-  $source.text(sanitizeText($source.html()));
-  $target.html(marked($source.text(), {sanitize: false}));
+var renderMarkdownText = function(sourceText, $target) {
+  $target.html(marked(sourceText, {sanitize: false}));
 };
 
-var renderLatexFormula = function($source, $target) {
-  $source.text(sanitizeText($source.text()));
-  katex.render($source.text(), $target.get(0));
+var renderLatexFormula = function(sourceText, $target) {
+  katex.render(sourceText, $target.get(0));
 };
 
-var renderSourceCode = function($source, $target) {
-  $source.text(sanitizeText($source.text()));
-  $target.text($source.text());
-
+var renderSourceCode = function(sourceText, $target) {
+  $target.text(sourceText);
   hljs.highlightBlock($target.get(0));
+  instructSourceCodeLines($target);
+};
+
+var instructSourceCodeLines = function($target) {
   var lines = $target.html().split(/\n/);
   $target.empty();
   _(lines).each(function(line, index) {
@@ -22,10 +22,8 @@ var renderSourceCode = function($source, $target) {
   });
 };
 
-var renderGraphvizGraph = function($source, $target) {
-  $source.text(sanitizeText($source.text()));
-
-  var graphlibGraph = graphlibDot.read($source.text());
+var renderGraphvizGraph = function(sourceText, $target) {
+  var graphlibGraph = graphlibDot.read(sourceText);
   var dagreGraph = new dagreD3.Digraph();
   _(graphlibGraph.nodes()).each(function(node) {
     dagreGraph.addNode(node, graphlibGraph.node(node));
@@ -39,13 +37,11 @@ var renderGraphvizGraph = function($source, $target) {
   renderer.layout(layout).run(dagreGraph, d3.select($target.get(0)));
 };
 
-var renderGeojsonMap = function($source, $target) {
-  $source.text(sanitizeText($source.text()));
-
+var renderGeojsonMap = function(sourceText, $target) {
   var leafletMap = L.map($target.get(0), {attributionControl: false});
   leafletMap.setView([49, 12], 4);
 
-  $.getJSON($source.text(), function(data) {
+  $.getJSON(sourceText, function(data) {
     var defaultStyle = {
       fillColor: "#fff",
       fillOpacity: 1,
@@ -59,21 +55,4 @@ var renderGeojsonMap = function($source, $target) {
       onEachFeature: function(feature, layer) {}
     }).addTo(leafletMap);
   });
-};
-
-// https://github.com/sindresorhus/strip-indent
-var stripIndent = function(str) {
-  var match = str.match(/^[ \t]*(?=\S)/gm);
-  if (!match) {
-    return str;
-  }
-  var indent = Math.min.apply(Math, match.map(function (el) {
-    return el.length;
-  }));
-  var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
-  return indent > 0 ? str.replace(re, "") : str;
-};
-
-var sanitizeText = function(text) {
-  return stripIndent(text).trim();
 };

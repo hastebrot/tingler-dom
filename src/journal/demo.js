@@ -5,7 +5,8 @@ var initSections = function() {
   var $markdownTextSource = $markdownText.find(".tingler-editor pre code");
   var $markdownTextTarget = $markdownText.find(".tingler-target .markdown");
 
-  renderMarkdownText($markdownTextSource, $markdownTextTarget);
+  sanitizeElement($markdownTextSource, $markdownTextSource.html());
+  renderMarkdownText($markdownTextSource.text(), $markdownTextTarget);
 
   // LATEX FORMULA.
 
@@ -13,7 +14,8 @@ var initSections = function() {
   var $latexFormulaSource = $latexFormula.find(".tingler-editor pre code");
   var $latexFormulaTarget = $latexFormula.find(".tingler-target .formula");
 
-  renderLatexFormula($latexFormulaSource, $latexFormulaTarget);
+  sanitizeElement($latexFormulaSource, $latexFormulaSource.text());
+  renderLatexFormula($latexFormulaSource.text(), $latexFormulaTarget);
 
   // SOURCE CODE.
 
@@ -21,7 +23,8 @@ var initSections = function() {
   var $sourceCodeSource = $sourceCode.find(".tingler-editor pre code");
   var $sourceCodeTarget = $sourceCode.find(".tingler-target pre code");
 
-  renderSourceCode($sourceCodeSource, $sourceCodeTarget);
+  sanitizeElement($sourceCodeSource, $sourceCodeSource.text());
+  renderSourceCode($sourceCodeSource.text(), $sourceCodeTarget);
 
   // GRAPHVIZ GRAPH.
 
@@ -29,7 +32,8 @@ var initSections = function() {
   var $graphvizGraphSource = $graphvizGraph.find(".tingler-editor pre code");
   var $graphvizGraphTarget = $graphvizGraph.find(".tingler-target svg g");
 
-  renderGraphvizGraph($graphvizGraphSource, $graphvizGraphTarget);
+  sanitizeElement($graphvizGraphSource, $graphvizGraphSource.text());
+  renderGraphvizGraph($graphvizGraphSource.text(), $graphvizGraphTarget);
 
   // GEOJSON MAP.
 
@@ -37,7 +41,29 @@ var initSections = function() {
   var $geojsonMapSource = $geojsonMap.find(".tingler-editor pre code");
   var $geojsonMapTarget = $geojsonMap.find(".tingler-target .map");
 
-  renderGeojsonMap($geojsonMapSource, $geojsonMapTarget);
+  sanitizeElement($geojsonMapSource, $geojsonMapSource.text());
+  renderGeojsonMap($geojsonMapSource.text(), $geojsonMapTarget);
+};
+
+var sanitizeElement = function($element, text) {
+  $element.text(sanitizeText(text));
+};
+
+var sanitizeText = function(text) {
+  return stripIndent(text).trim();
+};
+
+// https://github.com/sindresorhus/strip-indent
+var stripIndent = function(str) {
+  var match = str.match(/^[ \t]*(?=\S)/gm);
+  if (!match) {
+    return str;
+  }
+  var indent = Math.min.apply(Math, match.map(function (el) {
+    return el.length;
+  }));
+  var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
+  return indent > 0 ? str.replace(re, "") : str;
 };
 
 $(function() {
