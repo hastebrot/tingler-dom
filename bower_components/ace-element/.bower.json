@@ -1,0 +1,19 @@
+{
+  "name": "ace-element",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#>=0.4.0 <1.0.0"
+  },
+  "homepage": "https://github.com/PolymerLabs/ace-element",
+  "version": "0.4.0",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "7c935b657cc6820794d9bf21e89460113da60217"
+  },
+  "_source": "git://github.com/PolymerLabs/ace-element.git",
+  "_target": "~0.4.0",
+  "_originalSource": "PolymerLabs/ace-element",
+  "_direct": true
+}
