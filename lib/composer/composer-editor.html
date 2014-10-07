@@ -1,0 +1,19 @@
+<meta charset="utf-8"/><link rel="import" href="../../bower_components/ace-element/ace-element.html"/><link rel="import" href="../../bower_components/core-list/core-list.html"/><link rel="import" href="../../bower_components/core-pages/core-pages.html"/><polymer-element name="composer-editor" attributes="selected items"><template><style>.selected { background: #ddd; }
+</style><div horizontal="horizontal" layout="layout" fit="fit"><div flex="flex" one="one"><core-list id="list" data="{{items}}" selectionEnabled="true" selection="{{selectedItem}}"><template><div class="{{{selected: selected} | tokenList}}">{{model.text}}</div></template></core-list></div><div flex="flex" two="two" relative="relative"><core-pages selected="{{selectedIndex}}" fit="fit"><template repeat="{{item in items}}"><ace-element theme="github" mode="python">{{item.text}}</ace-element></template></core-pages></div></div></template><script>Polymer({
+  items: [],
+
+  selectedIndex: -1,
+  selectedItem: null,
+
+  ready: function() {
+    this.items = [
+      {text: "foo"},
+      {text: "bar"},
+      {text: "baz"}
+    ];
+  },
+
+  selectedItemChanged: function() {
+    this.selectedIndex = this.items.indexOf(this.selectedItem);
+  }
+});</script></polymer-element>
