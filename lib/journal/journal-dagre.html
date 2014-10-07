@@ -1,4 +1,29 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="journal-dagre-imports.html"/><script src="../../src/journal/pipeline.js"></script><polymer-element name="journal-dagre" attributes="text"><template><content id="source"></content><svg id="target"><g transform="translate(10,10)"></g></svg></template><script>Polymer({
+<link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="journal-dagre-imports.html"/><script src="../../src/journal/pipeline.js"></script><polymer-element name="journal-dagre" attributes="text"><template><style>#target {
+  width: 100%;
+  height: 100%;
+}
+svg.graph {
+  overflow: hidden;
+  width: 100%;
+  height: 222px;
+}
+
+svg.graph .node rect {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: #fff;
+}
+
+svg.graph .edgeLabel rect {
+  fill: #fff;
+}
+
+svg.graph .edgePath {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: none;
+}
+</style><content id="source"></content><svg id="target" class="graph"><g transform="translate(10,10)"></g></svg></template><script>Polymer({
   text: "",
 
   attached: function() {

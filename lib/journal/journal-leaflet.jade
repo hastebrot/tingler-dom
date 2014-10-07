@@ -1,39 +1,17 @@
 link(rel="import", href="../../bower_components/polymer/polymer.html")
-link(rel="import", href="journal-dagre-imports.html")
+link(rel="import", href="journal-leaflet-imports.html")
 script(src="../../src/journal/pipeline.js")
 
-polymer-element(name="journal-dagre", attributes="text")
+polymer-element(name="journal-leaflet", attributes="text")
   template
     style.
       #target {
         width: 100%;
         height: 100%;
       }
-      svg.graph {
-        overflow: hidden;
-        width: 100%;
-        height: 222px;
-      }
-
-      svg.graph .node rect {
-        stroke: #333;
-        stroke-width: 1.5px;
-        fill: #fff;
-      }
-
-      svg.graph .edgeLabel rect {
-        fill: #fff;
-      }
-
-      svg.graph .edgePath {
-        stroke: #333;
-        stroke-width: 1.5px;
-        fill: none;
-      }
 
     content#source
-    svg.graph#target
-      g(transform="translate(10,10)")
+    div#target
 
   script.
     Polymer({
@@ -56,6 +34,6 @@ polymer-element(name="journal-dagre", attributes="text")
       render: function() {
         var sourceText = this.text;
         var targetElement = this.$.target;
-        renderGraphvizGraph(sourceText, targetElement);
+        renderGeojsonMap(sourceText, targetElement);
       }
     });

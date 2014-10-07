@@ -1,21 +1,16 @@
 html
   head
     meta(charset="utf-8")
-    title demo: pipeline
+    title Demo: Pipeline
 
     script(src="../bower_components/platform/platform.js")
     link(rel="import", href="../lib/base-imports.html")
-
-    link(rel="import", href="../lib/journal/journal-marked-imports.html")
-    link(rel="import", href="../lib/journal/journal-katex-imports.html")
-    link(rel="import", href="../lib/journal/journal-dagre-imports.html")
-    link(rel="import", href="../lib/journal/journal-highlightjs-imports.html")
-    link(rel="import", href="../lib/journal/journal-leaflet-imports.html")
 
     link(rel="import", href="../lib/journal/journal-marked.html")
     link(rel="import", href="../lib/journal/journal-katex.html")
     link(rel="import", href="../lib/journal/journal-highlightjs.html")
     link(rel="import", href="../lib/journal/journal-dagre.html")
+    link(rel="import", href="../lib/journal/journal-leaflet.html")
 
     style.
       /* * { margin: 0; padding: 0; } */
@@ -52,7 +47,7 @@ html
       if __name__ == "__main__":
         print(add(2, 3))
 
-    section: journal-dagre.
+    section(style="height: 222px"): journal-dagre.
       digraph {
         kspacey   [label="Kevin Spacey"];
         swilliams [label="Saul Williams"];
@@ -67,3 +62,6 @@ html
         hford     -> lwilson   [label="Anchorman 2"];
         lwilson   -> kbacon    [label="Telling Lies in America"];
       }
+
+    section(style="height: 333px"): journal-leaflet.
+      data/ne_110m_admin_0_countries.geo.json

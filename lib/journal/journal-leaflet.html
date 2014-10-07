@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="journal-leaflet-imports.html"/><script src="../../src/journal/pipeline.js"></script><polymer-element name="journal-leaflet" attributes="text"><template><style>#target {
+  width: 100%;
+  height: 100%;
+}
+</style><content id="source"></content><div id="target"></div></template><script>Polymer({
+  text: "",
+
+  attached: function() {
+    if (!this.text) {
+      var source = this.$.source.getDistributedNodes();
+      this.text = $(source).text();
+      $(source).remove();
+    }
+  },
+
+  textChanged: function(oldValue, newValue) {
+    if (newValue) {
+      this.render();
+    }
+  },
+
+  render: function() {
+    var sourceText = this.text;
+    var targetElement = this.$.target;
+    renderGeojsonMap(sourceText, targetElement);
+  }
+});</script></polymer-element>
