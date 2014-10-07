@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="journal-dagre-imports.html"/><script src="../../src/journal/pipeline.js"></script><polymer-element name="journal-dagre" attributes="text"><template><content id="source"></content><svg id="target"><g transform="translate(10,10)"></g></svg></template><script>Polymer({
+  text: "",
+
+  attached: function() {
+    if (!this.text) {
+      var source = this.$.source.getDistributedNodes();
+      this.text = $(source).text();
+      $(source).remove();
+    }
+  },
+
+  textChanged: function(oldValue, newValue) {
+    if (newValue) {
+      this.render();
+    }
+  },
+
+  render: function() {
+    var sourceText = this.text;
+    var targetElement = this.$.target;
+    renderGraphvizGraph(sourceText, targetElement);
+  }
+});</script></polymer-element>

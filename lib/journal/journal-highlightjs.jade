@@ -1,0 +1,33 @@
+link(rel="import", href="../../bower_components/polymer/polymer.html")
+link(rel="import", href="journal-highlightjs-imports.html")
+script(src="../../src/journal/pipeline.js")
+
+polymer-element(name="journal-highlightjs", attributes="text")
+  template
+    content#source
+    pre: code#target
+
+  script.
+    Polymer({
+      text: "",
+
+      attached: function() {
+        if (!this.text) {
+          var source = this.$.source.getDistributedNodes();
+          this.text = $(source).text();
+          $(source).remove();
+        }
+      },
+
+      textChanged: function(oldValue, newValue) {
+        if (newValue) {
+          this.render();
+        }
+      },
+
+      render: function() {
+        var sourceText = this.text;
+        var targetElement = this.$.target;
+        renderSourceCode(sourceText, targetElement);
+      }
+    });

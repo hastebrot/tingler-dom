@@ -1,0 +1,21 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="journal-marked-imports.html"/><script src="../../src/journal/pipeline.js"></script><polymer-element name="journal-marked" attributes="text"><script>Polymer({
+  text: "",
+
+  attached: function() {
+    if (!this.text) {
+      this.text = $(this).text();
+    }
+  },
+
+  textChanged: function(oldValue, newValue) {
+    if (newValue) {
+      this.render();
+    }
+  },
+
+  render: function() {
+    var sourceText = this.text;
+    var targetElement = this;
+    renderMarkdownText(sourceText, targetElement);
+  }
+});</script></polymer-element>

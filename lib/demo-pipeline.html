@@ -1,0 +1,40 @@
+<html><head><meta charset="utf-8"/><title>demo: pipeline</title><script src="../bower_components/platform/platform.js"></script><link rel="import" href="../lib/base-imports.html"/><link rel="import" href="../lib/journal/journal-marked-imports.html"/><link rel="import" href="../lib/journal/journal-katex-imports.html"/><link rel="import" href="../lib/journal/journal-dagre-imports.html"/><link rel="import" href="../lib/journal/journal-highlightjs-imports.html"/><link rel="import" href="../lib/journal/journal-leaflet-imports.html"/><link rel="import" href="../lib/journal/journal-marked.html"/><link rel="import" href="../lib/journal/journal-katex.html"/><link rel="import" href="../lib/journal/journal-highlightjs.html"/><link rel="import" href="../lib/journal/journal-dagre.html"/><style>/* * { margin: 0; padding: 0; } */
+body { font-family: "Roboto", sans-serif; }
+section { margin: 20px; padding: 20px; border: 1px solid #ccc; }
+</style></head><body><section><journal-marked>## First Section
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud <u>exercitation ullamco laboris
+nisi ut aliquip ex ea commodo</u> consequat.
+
+## Second Section
+
+Ut enim ad minim veniam, quis nostrud [exercitation](#) ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+---
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+</journal-marked></section><section><journal-katex>f(x) = ax + b
+</journal-katex></section><section><journal-highlightjs>def add(a, b):
+  return a + b
+
+if __name__ == "__main__":
+  print(add(2, 3))
+</journal-highlightjs></section><section><journal-dagre>digraph {
+  kspacey   [label="Kevin Spacey"];
+  swilliams [label="Saul Williams"];
+  bpitt     [label="Brad Pitt"];
+  hford     [label="Harrison Ford"];
+  lwilson   [label="Luke Wilson"];
+  kbacon    [label="Kevin Bacon"];
+
+  kspacey   -> swilliams [label="K-PAX"];
+  swilliams -> kbacon    [label="These Vagabond Shoes"];
+  bpitt     -> kbacon    [label="Sleepers"];
+  hford     -> lwilson   [label="Anchorman 2"];
+  lwilson   -> kbacon    [label="Telling Lies in America"];
+}</journal-dagre></section></body></html>
