@@ -8,6 +8,7 @@ html
 
     link(rel="import", href="../bower_components/ace-element/ace-element.html")
     link(rel="import", href="../lib/composer/composer-editor.html")
+    link(rel="import", href="../lib/composer/composer-item.html")
 
     style.
       /* * { margin: 0; padding: 0; } */
@@ -17,9 +18,22 @@ html
   body
     section(relative, style="height: 333px;")
       composer-editor
+        composer-item(name="foo.html").
+          <h1>title</h1>
+          <p>content</p>
+
+        composer-item(name="bar.js").
+          console.log("hello");
+
+        composer-item(name="baz.py").
+          def add(a, b):
+              return a + b
+
+          if __name__ == "__main__":
+              print(add(2, 3))
 
     section(relative, style="height: 333px;")
-      ace-element(theme="github", mode="python").
+      ace-element(theme="github", mode="python", fontSize="20px").
         def add(a, b):
           return a + b
 

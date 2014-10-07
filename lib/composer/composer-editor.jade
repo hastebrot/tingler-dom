@@ -1,37 +1,37 @@
 meta(charset="utf-8")
-link(rel="import", href="../../bower_components/ace-element/ace-element.html")
-link(rel="import", href="../../bower_components/core-list/core-list.html")
-link(rel="import", href="../../bower_components/core-pages/core-pages.html")
+link(rel="import", href="composer-list.html")
+link(rel="import", href="composer-pages.html")
 
-polymer-element(name="composer-editor", attributes="selected items")
+polymer-element(name="composer-editor", attributes="items selectedIndex")
   template
     style.
-      .selected { background: #ddd; }
+      :host { display: block; }
+      ::content composer-item { display: none; }
+
+    content(select="composer-item")
 
     div(horizontal, layout, fit)
       div(flex, one)
-        core-list#list(data="{{items}}", selectionEnabled="true", selection="{{selectedItem}}")
-          template
-            div(class="{{{selected: selected} | tokenList}}") {{model.text}}
+        composer-list#list(selectedIndex="{{selectedIndex}}")
 
       div(flex, two, relative)
-        core-pages(selected="{{selectedIndex}}", fit)
-          template(repeat="{{item in items}}")
-            ace-element(theme="github", mode="python") {{item.text}}
+        composer-pages#pages(selectedIndex="{{selectedIndex}}")
 
   script.
     Polymer({
       items: [],
-
-      selectedIndex: -1,
       selectedItem: null,
+      selectedIndex: -1,
 
-      ready: function() {
-        this.items = [
-          {text: "foo"},
-          {text: "bar"},
-          {text: "baz"}
-        ];
+      domReady: function() {
+        this.items = [].slice.call(this.children);
+        //var content = this.shadowRoot.querySelector("content");
+        //this.items = content.getDistributedNodes();
+      },
+
+      itemsChanged: function() {
+        this.$.list.items = this.items;
+        this.$.pages.items = this.items;
       },
 
       selectedItemChanged: function() {

@@ -1,0 +1,11 @@
+<meta charset="utf-8"/><link rel="import" href="../../bower_components/polymer/polymer.html"/><polymer-element name="composer-item" attributes="name type content"><script>Polymer({
+  name: "",
+  type: "",
+  content: "",
+
+  attached: function() {
+    if (!this.content) {
+      this.content = $(this).html();
+    }
+  }
+});</script></polymer-element>

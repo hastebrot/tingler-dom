@@ -1,0 +1,17 @@
+<meta charset="utf-8"/><link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="../../bower_components/core-list/core-list.html"/><polymer-element name="composer-list" attributes="items selectedItem selectedIndex"><template><style>:host { display: block; }
+::content composer-item { display: none; }
+.item { cursor: pointer;}
+.item.selected { background: #ddd; }
+</style><content select="composer-item"></content><core-list data="{{items}}" selectionEnabled="true" selection="{{selectedItem}}"><template><div class="item {{{selected: selected} | tokenList}}">{{model.name}}</div></template></core-list></template><script>Polymer({
+  items: [],
+  selectedItem: null,
+  selectedIndex: -1,
+
+  ready: function() {
+    this.items = [].slice.call(this.children);
+  },
+
+  selectedItemChanged: function() {
+    this.selectedIndex = this.items.indexOf(this.selectedItem);
+  }
+});</script></polymer-element>
