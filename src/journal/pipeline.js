@@ -1,18 +1,21 @@
-var renderMarkdownText = function(sourceText, $target) {
+var renderMarkdownText = function(sourceText, targetElement) {
+  var $target = $(targetElement);
   $target.html(marked(sourceText, {sanitize: false}));
 };
 
-var renderLatexFormula = function(sourceText, $target) {
-  katex.render(sourceText, $target.get(0));
+var renderLatexFormula = function(sourceText, targetElement) {
+  katex.render(sourceText, targetElement);
 };
 
-var renderSourceCode = function(sourceText, $target) {
+var renderSourceCode = function(sourceText, targetElement) {
+  var $target = $(targetElement);
   $target.text(sourceText);
-  hljs.highlightBlock($target.get(0));
-  instructSourceCodeLines($target);
+  hljs.highlightBlock(targetElement);
+  instructSourceCodeLines(targetElement);
 };
 
-var instructSourceCodeLines = function($target) {
+var instructSourceCodeLines = function(targetElement) {
+  var $target = $(targetElement);
   var lines = $target.html().split(/\n/);
   $target.empty();
   _(lines).each(function(line, index) {
@@ -22,7 +25,7 @@ var instructSourceCodeLines = function($target) {
   });
 };
 
-var renderGraphvizGraph = function(sourceText, $target) {
+var renderGraphvizGraph = function(sourceText, targetElement) {
   var graphlibGraph = graphlibDot.read(sourceText);
   var dagreGraph = new dagreD3.Digraph();
   _(graphlibGraph.nodes()).each(function(node) {
@@ -34,11 +37,11 @@ var renderGraphvizGraph = function(sourceText, $target) {
 
   var renderer = new dagreD3.Renderer();
   var layout = dagreD3.layout().nodeSep(20).rankDir("LR");
-  renderer.layout(layout).run(dagreGraph, d3.select($target.get(0)));
+  renderer.layout(layout).run(dagreGraph, d3.select(targetElement));
 };
 
-var renderGeojsonMap = function(sourceText, $target) {
-  var leafletMap = L.map($target.get(0), {attributionControl: false});
+var renderGeojsonMap = function(sourceText, targetElement) {
+  var leafletMap = L.map(targetElement, {attributionControl: false});
   leafletMap.setView([49, 12], 4);
 
   $.getJSON(sourceText, function(data) {

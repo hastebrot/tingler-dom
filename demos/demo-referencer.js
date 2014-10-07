@@ -6,7 +6,7 @@ var initSections = function() {
   var $markdownTextTarget = $markdownText.find(".tingler-target .markdown");
 
   sanitizeElement($markdownTextSource, $markdownTextSource.html());
-  renderMarkdownText($markdownTextSource.text(), $markdownTextTarget);
+  renderMarkdownText($markdownTextSource.text(), $markdownTextTarget.get(0));
 
   // LATEX FORMULA.
 
@@ -15,7 +15,7 @@ var initSections = function() {
   var $latexFormulaTarget = $latexFormula.find(".tingler-target .formula");
 
   sanitizeElement($latexFormulaSource, $latexFormulaSource.text());
-  renderLatexFormula($latexFormulaSource.text(), $latexFormulaTarget);
+  renderLatexFormula($latexFormulaSource.text(), $latexFormulaTarget.get(0));
 
   // SOURCE CODE.
 
@@ -24,7 +24,7 @@ var initSections = function() {
   var $sourceCodeTarget = $sourceCode.find(".tingler-target pre code");
 
   sanitizeElement($sourceCodeSource, $sourceCodeSource.text());
-  renderSourceCode($sourceCodeSource.text(), $sourceCodeTarget);
+  renderSourceCode($sourceCodeSource.text(), $sourceCodeTarget.get(0));
 
   // GRAPHVIZ GRAPH.
 
@@ -33,7 +33,7 @@ var initSections = function() {
   var $graphvizGraphTarget = $graphvizGraph.find(".tingler-target svg g");
 
   sanitizeElement($graphvizGraphSource, $graphvizGraphSource.text());
-  renderGraphvizGraph($graphvizGraphSource.text(), $graphvizGraphTarget);
+  renderGraphvizGraph($graphvizGraphSource.text(), $graphvizGraphTarget.get(0));
 
   // GEOJSON MAP.
 
@@ -42,7 +42,7 @@ var initSections = function() {
   var $geojsonMapTarget = $geojsonMap.find(".tingler-target .map");
 
   sanitizeElement($geojsonMapSource, $geojsonMapSource.text());
-  renderGeojsonMap($geojsonMapSource.text(), $geojsonMapTarget);
+  renderGeojsonMap($geojsonMapSource.text(), $geojsonMapTarget.get(0));
 };
 
 var sanitizeElement = function($element, text) {
