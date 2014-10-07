@@ -1,0 +1,27 @@
+html
+  head
+    meta(charset="utf-8")
+    title Demo: Composer
+
+    script(src="../bower_components/platform/platform.js")
+    link(rel="import", href="../lib/base-imports.html")
+
+    link(rel="import", href="../bower_components/ace-element/ace-element.html")
+    link(rel="import", href="../lib/composer/composer-editor.html")
+
+    style.
+      /* * { margin: 0; padding: 0; } */
+      body { font-family: "Roboto", sans-serif; }
+      section { margin: 20px; padding: 20px; border: 1px solid #ccc; }
+
+  body
+    section(relative, style="height: 333px;")
+      composer-editor
+
+    section(relative, style="height: 333px;")
+      ace-element(theme="github", mode="python").
+        def add(a, b):
+          return a + b
+
+        if __name__ == "__main__":
+          print(add(2, 3))

@@ -1,0 +1,40 @@
+meta(charset="utf-8")
+link(rel="import", href="../../bower_components/ace-element/ace-element.html")
+link(rel="import", href="../../bower_components/core-list/core-list.html")
+link(rel="import", href="../../bower_components/core-pages/core-pages.html")
+
+polymer-element(name="composer-editor", attributes="selected items")
+  template
+    style.
+      .selected { background: #ddd; }
+
+    div(horizontal, layout, fit)
+      div(flex, one)
+        core-list#list(data="{{items}}", selectionEnabled="true", selection="{{selectedItem}}")
+          template
+            div(class="{{{selected: selected} | tokenList}}") {{model.text}}
+
+      div(flex, two, relative)
+        core-pages(selected="{{selectedIndex}}", fit)
+          template(repeat="{{item in items}}")
+            ace-element(theme="github", mode="python") {{item.text}}
+
+  script.
+    Polymer({
+      items: [],
+
+      selectedIndex: -1,
+      selectedItem: null,
+
+      ready: function() {
+        this.items = [
+          {text: "foo"},
+          {text: "bar"},
+          {text: "baz"}
+        ];
+      },
+
+      selectedItemChanged: function() {
+        this.selectedIndex = this.items.indexOf(this.selectedItem);
+      }
+    });
