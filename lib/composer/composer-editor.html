@@ -1,19 +1,14 @@
 <meta charset="utf-8"/><link rel="import" href="composer-list.html"/><link rel="import" href="composer-pages.html"/><polymer-element name="composer-editor" attributes="items selectedIndex"><template><style>:host { display: block; }
 ::content composer-item { display: none; }
-</style><content select="composer-item"></content><div horizontal="horizontal" layout="layout" fit="fit"><div flex="flex" one="one"><composer-list id="list" selectedIndex="{{selectedIndex}}"></composer-list></div><div flex="flex" two="two" relative="relative"><composer-pages id="pages" selectedIndex="{{selectedIndex}}"></composer-pages></div></div></template><script>Polymer({
+</style><content select="composer-item"></content><div horizontal="horizontal" layout="layout" fit="fit"><div flex="flex" three="three" relative="relative"><composer-pages id="pages" items="{{items}}" selectedIndex="{{selectedIndex}}"></composer-pages></div><div flex="flex" one="one"><composer-list id="list" items="{{items}}" selectedIndex="{{selectedIndex}}"></composer-list></div></div></template><script>Polymer({
   items: [],
   selectedItem: null,
-  selectedIndex: -1,
+  selectedIndex: 0,
 
   domReady: function() {
     this.items = [].slice.call(this.children);
     //var content = this.shadowRoot.querySelector("content");
     //this.items = content.getDistributedNodes();
-  },
-
-  itemsChanged: function() {
-    this.$.list.items = this.items;
-    this.$.pages.items = this.items;
   },
 
   selectedItemChanged: function() {

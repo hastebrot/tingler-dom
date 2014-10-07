@@ -1,14 +1,18 @@
 <meta charset="utf-8"/><link rel="import" href="../../bower_components/polymer/polymer.html"/><link rel="import" href="../../bower_components/core-list/core-list.html"/><polymer-element name="composer-list" attributes="items selectedItem selectedIndex"><template><style>:host { display: block; }
 ::content composer-item { display: none; }
-.item { cursor: pointer;}
-.item.selected { background: #ddd; }
-</style><content select="composer-item"></content><core-list data="{{items}}" selectionEnabled="true" selection="{{selectedItem}}"><template><div class="item {{{selected: selected} | tokenList}}">{{model.name}}</div></template></core-list></template><script>Polymer({
+.item { cursor: pointer; padding: 5px; }
+.item.selected { background: #e8e8e8; }
+.list { border-left: 1px solid #d7d7d7; }
+.list .core-list-viewport { height: 100% !important; }
+</style><content select="composer-item"></content><core-list data="{{items}}" selectionEnabled="true" selection="{{selectedItem}}" class="list"><template><div class="item {{{selected: selected} | tokenList}}">{{model.name}}</div></template></core-list></template><script>Polymer({
   items: [],
   selectedItem: null,
-  selectedIndex: -1,
+  selectedIndex: 0,
 
   ready: function() {
-    this.items = [].slice.call(this.children);
+    if (this.items.length === 0) {
+      this.items = [].slice.call(this.children);
+    }
   },
 
   selectedItemChanged: function() {

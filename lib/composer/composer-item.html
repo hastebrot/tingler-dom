@@ -7,5 +7,9 @@
     if (!this.content) {
       this.content = $(this).html();
     }
+  },
+
+  contentChanged: function(oldValue, value) {
+    console.log("changed:", this.name);
   }
 });</script></polymer-element>

@@ -11,27 +11,22 @@ polymer-element(name="composer-editor", attributes="items selectedIndex")
     content(select="composer-item")
 
     div(horizontal, layout, fit)
-      div(flex, one)
-        composer-list#list(selectedIndex="{{selectedIndex}}")
+      div(flex, three, relative)
+        composer-pages#pages(items="{{items}}", selectedIndex="{{selectedIndex}}")
 
-      div(flex, two, relative)
-        composer-pages#pages(selectedIndex="{{selectedIndex}}")
+      div(flex, one)
+        composer-list#list(items="{{items}}", selectedIndex="{{selectedIndex}}")
 
   script.
     Polymer({
       items: [],
       selectedItem: null,
-      selectedIndex: -1,
+      selectedIndex: 0,
 
       domReady: function() {
         this.items = [].slice.call(this.children);
         //var content = this.shadowRoot.querySelector("content");
         //this.items = content.getDistributedNodes();
-      },
-
-      itemsChanged: function() {
-        this.$.list.items = this.items;
-        this.$.pages.items = this.items;
       },
 
       selectedItemChanged: function() {

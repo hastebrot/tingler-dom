@@ -1,7 +1,19 @@
 <html><head><meta charset="utf-8"/><title>Demo: Composer</title><script src="../bower_components/platform/platform.js"></script><link rel="import" href="../lib/base-imports.html"/><link rel="import" href="../bower_components/ace-element/ace-element.html"/><link rel="import" href="../lib/composer/composer-editor.html"/><link rel="import" href="../lib/composer/composer-item.html"/><style>/* * { margin: 0; padding: 0; } */
-body { font-family: "Roboto", sans-serif; }
-section { margin: 20px; padding: 20px; border: 1px solid #ccc; }
-</style></head><body><section relative="relative" style="height: 333px;"><composer-editor><composer-item name="foo.html"><h1>title</h1>
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f7f7f7;
+}
+section {
+  background: #fff;
+  box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.1);
+  border: 1px solid #d7d7d7;
+}
+section { margin: 25px; padding: 25px; }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style></head><body><div class="container"><section relative="relative" style="height: 333px;"><composer-editor><composer-item name="foo.html"><h1>title</h1>
 <p>content</p>
 </composer-item><composer-item name="bar.js">console.log("hello");
 </composer-item><composer-item name="baz.py">def add(a, b):
@@ -10,7 +22,11 @@ section { margin: 20px; padding: 20px; border: 1px solid #ccc; }
 if __name__ == "__main__":
     print(add(2, 3))
 </composer-item></composer-editor></section><section relative="relative" style="height: 333px;"><ace-element theme="github" mode="python" fontSize="20px">def add(a, b):
-  return a + b
+    return a + b
 
 if __name__ == "__main__":
-  print(add(2, 3))</ace-element></section></body></html>
+    print(add(2, 3))
+</ace-element><script>var aceElement = document.querySelector("ace-element");
+aceElement.addEventListener("editor-input", function(event) {
+  //console.log(event.detail.value);
+});</script></section></div></body></html>

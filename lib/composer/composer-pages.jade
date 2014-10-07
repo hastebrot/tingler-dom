@@ -11,20 +11,33 @@ polymer-element(name="composer-pages", attributes="items selectedIndex")
     content(select="composer-item")
 
     core-pages(selected="{{selectedIndex}}", fit)
-      template(repeat="{{item in items}}")
-        ace-element(theme="github", mode="plain text", fontSize="20px") {{item.content}}
+      template(repeat="{{item, index in items}}")
+        ace-element(data-index="{{index}}", on-editor-input="{{onEditorInput}}",
+        theme="github", mode="plain text", fontSize="20px").
+          {{item.content}}
 
   script.
     Polymer({
       items: [],
-      selectedIndex: -1,
+      selectedIndex: 0,
       selectedItem: null,
 
       ready: function() {
-        this.items = [].slice.call(this.children);
+        if (this.items.length === 0) {
+          this.items = [].slice.call(this.children);
+        }
       },
 
       selectedItemChanged: function() {
         this.selectedIndex = this.items.indexOf(this.selectedItem);
+      },
+
+      onEditorInput: function(event) {
+        var index = event.target.getAttribute("data-index");
+        var value = event.detail.value;
+        var item = this.items[index];
+        if (item.content !== value) {
+          item.content = value;
+        }
       }
     });

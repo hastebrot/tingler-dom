@@ -7,12 +7,14 @@ polymer-element(name="composer-list", attributes="items selectedItem selectedInd
     style.
       :host { display: block; }
       ::content composer-item { display: none; }
-      .item { cursor: pointer;}
-      .item.selected { background: #ddd; }
+      .item { cursor: pointer; padding: 5px; }
+      .item.selected { background: #e8e8e8; }
+      .list { border-left: 1px solid #d7d7d7; }
+      .list .core-list-viewport { height: 100% !important; }
 
     content(select="composer-item")
 
-    core-list(data="{{items}}", selectionEnabled="true", selection="{{selectedItem}}")
+    core-list.list(data="{{items}}", selectionEnabled="true", selection="{{selectedItem}}")
       template
         div.item(class="{{{selected: selected} | tokenList}}") {{model.name}}
 
@@ -20,10 +22,12 @@ polymer-element(name="composer-list", attributes="items selectedItem selectedInd
     Polymer({
       items: [],
       selectedItem: null,
-      selectedIndex: -1,
+      selectedIndex: 0,
 
       ready: function() {
-        this.items = [].slice.call(this.children);
+        if (this.items.length === 0) {
+          this.items = [].slice.call(this.children);
+        }
       },
 
       selectedItemChanged: function() {
