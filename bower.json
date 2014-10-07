@@ -16,6 +16,9 @@
     "lodash": "~2.4.1"
   },
   "devDependencies": {
+    "ace-element": "PolymerLabs/ace-element#~0.4.0",
+    "core-list": "Polymer/core-list#~0.4.2",
+    "core-pages": "Polymer/core-pages#~0.4.2",
     "dagre-d3": "~0.2.9",
     "graphlib-dot": "~0.5.0",
     "highlightjs": "~8.0.0",
